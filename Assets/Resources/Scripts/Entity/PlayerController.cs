@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour, IManagable
         if (this.isAlive)
         {
             inputInfo = inputManager.GetInfo();
-            CanMoveInput();
+            
             if (canMove)
             {
                 PlayerJump(inputInfo.jumpPressed);
@@ -77,23 +77,7 @@ public class PlayerController : MonoBehaviour, IManagable
 
     }
 
-    private void CanMoveInput()
-    {
  
-        if (inputInfo.switchPlayerPressed)
-        {
-            if(PlayerManager.instance.activePlayer)
-                 canMove = !canMove;
-           /* else
-            {
-                List<PlayerController> inactiveList = PlayerManager.instance.inActivePlayers;
-                foreach (PlayerController p in inactiveList)
-                {
-                    Activ
-                }
-            }*/
-        }
-    }
 
     private void ManageJump(float dt)
     {

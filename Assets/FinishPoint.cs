@@ -5,9 +5,9 @@ using UnityEngine;
 public class FinishPoint : MonoBehaviour
 {
   
-    GameObject go;
+   
     public bool playerReached = false;
-    List<PlayerController> players;
+
 
    public void Initialize()
     {

@@ -10,28 +10,24 @@ public class PlayerManager : IManagable
     private PlayerManager() { }
     public static PlayerManager instance { get { return Instance ?? (Instance = new PlayerManager()); } }
     #endregion
-    bool isAlive;
+
+    
     GameObject[] playerPrefab;
-    GameObject PlayerParent;
-    public Dictionary<PlayerController, bool> playersDict;
+    Transform PlayerParent;
     public List<PlayerController> playersList;
-    public PlayerController activePlayer { get; set; }
-    public PlayerController inActivePlayer { get; set; }
     public PlayerController player { get; set; }
-    public List<PlayerController> inActivePlayers;
-       
-
-
-    GameObject[] startLocs;
+    public int playerIndex;
+    GameObject[] startPoints;
+    /*public Dictionary<PlayerController, bool> playersDict;*/
     
 
     public void Initialize()
     {
-        playerPrefab = new GameObject[3];
-        playersDict = new Dictionary<PlayerController, bool>();
+        startPoints = new GameObject[LevelManager.instance.totalStartPoints];
+        startPoints = LevelManager.instance.startPoints;
+        playerPrefab = new GameObject[startPoints.Length];
         playersList = new List<PlayerController>();
-        inActivePlayers = new List<PlayerController>();
-        startLocs = GameObject.FindGameObjectsWithTag("StartingPoint");
+
      
         SpawnPlayer();
 
@@ -48,26 +44,18 @@ public class PlayerManager : IManagable
 
             for (int i = 0; i < playerPrefab.Length; i++)
             {
-                playerPrefab[i] = GameObject.Instantiate(Resources.Load<GameObject>("Prefabs/Player"), startLocs[i].transform.position, Quaternion.identity);
-
-                inActivePlayers[i] = playerPrefab[i + 1].GetComponent<PlayerController>();
-                inActivePlayers[i].canMove = false;
-                inActivePlayers.Add(inActivePlayers[i]);
-
+                playerPrefab[i] = GameObject.Instantiate(Resources.Load<GameObject>("Prefabs/Player"), startPoints[i].transform.position, Quaternion.identity);
+                playerPrefab[i].name = "Player " + (i + 1);
+                playersList.Add(playerPrefab[i].GetComponent<PlayerController>());
             }
-            activePlayer = playerPrefab[0].GetComponent<PlayerController>();
-            activePlayer.canMove = true;
-            playersList.Add(activePlayer);
-
-            for(int i = 0; i < playerPrefab.Length; i++)
-            {
-                
-            }
-
+            player = playerPrefab[0].GetComponent<PlayerController>();
+            playerIndex = 0;
+            player.canMove = true;
 
             /*  playersDict.Add(player,player.canMove);*/
 
             /*
+             * 
                         playerPrefab[1] = GameObject.Instantiate(Resources.Load<GameObject>("Prefabs/Player2"), startLocs[1].transform.position, Quaternion.identity);
                         inActivePlayer = playerPrefab[1].GetComponent<PlayerController>();
                         inActivePlayers.Add(inActivePlayer);
@@ -77,7 +65,7 @@ public class PlayerManager : IManagable
                  inActivePlayers.Add(player);*/
         }
 
-        activePlayer.PlayerSpawned();
+        player.PlayerSpawned();
     }
 
     public void PhysicsRefresh()
@@ -100,12 +88,33 @@ public class PlayerManager : IManagable
 
     public void Refresh(float dt)
     {
+        CanMoveInput();
         foreach (PlayerController p in playersList)
         {
-            if (p)
+            if (p == player)
+            {
+                p.canMove = true;
                 p.Refresh(dt);
+            }
+            else
+            {
+                p.canMove = false;
+            }
+        }
+
+        Debug.Log(player.transform);
+    }
+
+    private void CanMoveInput()
+    {
+
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+           
+            int index = (playerIndex + 1) % playersList.Count;
+            player = playersList[index];
+            playerIndex = index;
+         
         }
     }
-    
-    
 }

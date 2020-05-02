@@ -10,8 +10,16 @@ public class EnemyManager : IManagable
     public static EnemyManager instance { get { return Instance ?? (Instance = new EnemyManager()); } }
 
     #endregion
+
+    public Dictionary<EnemyType, GameObject> enemyPrefabDict;
+    Transform parent;
+
     public void Initialize()
-    {    
+    {
+        enemyPrefabDict = new Dictionary<EnemyType, GameObject>();
+        enemyPrefabDict.Add(EnemyType.Ghosts, Resources.Load<GameObject>("Prefab/Ghost"));
+        parent = new GameObject("EnemyParent").transform;
+
     }
 
     public void PhysicsRefresh()

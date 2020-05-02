@@ -9,25 +9,33 @@ public class GameFlow : IManagable
     private GameFlow() { }
     public static GameFlow instance { get { return Instance ?? (Instance = new GameFlow()); } }
     #endregion
+
     public void Initialize()
     {
-        PlayerManager.instance.Initialize();
+        LevelManager.instance.Initialize();
         FinishPointManager.instance.Initialize();
-        EnemyManager.
+        PlayerManager.instance.Initialize();
+        EnemyManager.instance.Initialize();
     }
     public void PostInitialize()
     {
-        PlayerManager.instance.PostInitialize();
+        LevelManager.instance.PostInitialize();
         FinishPointManager.instance.PostInitialize();
+        PlayerManager.instance.PostInitialize();
+        EnemyManager.instance.PostInitialize();
     }
     public void Refresh(float dt)
     {
-        PlayerManager.instance.Refresh(dt);
+        LevelManager.instance.Refresh(dt);
         FinishPointManager.instance.Refresh(dt);
+        PlayerManager.instance.Refresh(dt);
+        EnemyManager.instance.Refresh(dt);
     }
     public void PhysicsRefresh()
     {
-        PlayerManager.instance.PhysicsRefresh();
+        LevelManager.instance.PhysicsRefresh();
         FinishPointManager.instance.PhysicsRefresh();
+        PlayerManager.instance.PhysicsRefresh();
+        EnemyManager.instance.PhysicsRefresh();
     }
 }

@@ -12,8 +12,7 @@ public class FinishPointManager : IManagable
     #endregion
 
     List<FinishPoint> finishPoints;
-    GameObject[] gos;
-    List<PlayerController> players;
+
    
     public void Initialize()
     {
@@ -58,7 +57,7 @@ public class FinishPointManager : IManagable
         //}
         if (!LevelFinisher())
         {
-            Debug.Log("Both players have not reached yet");
+            Debug.Log("//Players have not reached yet");
         }
         else
         {
@@ -78,7 +77,7 @@ public class FinishPointManager : IManagable
             }
             else
             {
-                Debug.Log("Both Player have not reached yet");
+                Debug.Log("Players have not reached yet");
                 return false;
             }
         }
