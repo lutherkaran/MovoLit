@@ -9,6 +9,7 @@ TagManager:
   - Battery
   - Torch
   - FinishPoint
+  - StartingPoint
   layers:
   - Default
   - TransparentFX
@@ -24,7 +25,7 @@ TagManager:
   - Torch
   - Battery
   - FinishPoint
-  - 
+  - StartingPoint
   - 
   - 
   - 

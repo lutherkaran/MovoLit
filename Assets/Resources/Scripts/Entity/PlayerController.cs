@@ -45,13 +45,6 @@ public class PlayerController : MonoBehaviour, IManagable
 
     public void PhysicsRefresh()
     {
-        inputInfo = inputManager.GetInfo();
-        if (canMove)
-        {
-            if (!jump && !jumpThresholdTime)
-                PlayerMove(inputInfo.inputDir);
-        }
-       
     
     }
 
@@ -68,12 +61,14 @@ public class PlayerController : MonoBehaviour, IManagable
         
         if (this.isAlive)
         {
+            inputInfo = inputManager.GetInfo();
             CanMoveInput();
             if (canMove)
             {
-                inputInfo = inputManager.GetInfo();
                 PlayerJump(inputInfo.jumpPressed);
-                
+                if (!jump && !jumpThresholdTime)
+                    PlayerMove(inputInfo.inputDir);
+
             }
             ManageJump(dt);
             GravityCheck();
@@ -84,9 +79,19 @@ public class PlayerController : MonoBehaviour, IManagable
 
     private void CanMoveInput()
     {
-        if (Input.GetKeyDown(KeyCode.H))
+ 
+        if (inputInfo.switchPlayerPressed)
         {
-            canMove = !canMove;
+            if(PlayerManager.instance.activePlayer)
+                 canMove = !canMove;
+           /* else
+            {
+                List<PlayerController> inactiveList = PlayerManager.instance.inActivePlayers;
+                foreach (PlayerController p in inactiveList)
+                {
+                    Activ
+                }
+            }*/
         }
     }
 

@@ -24,33 +24,27 @@ public class InputManager
     public InputInfo CreateInput()
     {
         Vector2 inputDir = new Vector2();
-       /* if (Input.GetKey(KeyCode.A))
-        {
-            inputDir.x = -1;
-            
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            inputDir.x = 1;
-          
-        }*/
+
         inputDir.x = Input.GetAxisRaw("Horizontal");
         bool throwPressed = Input.GetKeyDown(KeyCode.F);
         bool jumpPressed = Input.GetKeyDown(KeyCode.Space);
+        bool switchPressed = Input.GetKeyDown(KeyCode.H);
         
-        return new InputInfo(inputDir, throwPressed, jumpPressed);
+        return new InputInfo(inputDir, throwPressed, jumpPressed,switchPressed);
     }
     public class InputInfo
     {
         public Vector2 inputDir;
         public bool throwPressed;
         public bool jumpPressed;
+        public bool switchPlayerPressed;
 
-        public InputInfo(Vector2 _inputDir, bool _throwPressed, bool _jumpPressed)
+        public InputInfo(Vector2 _inputDir, bool _throwPressed, bool _jumpPressed, bool _switchPlayerPressed)
         {
             this.inputDir = _inputDir;
             this.throwPressed = _throwPressed;
             this.jumpPressed = _jumpPressed;
+            this.switchPlayerPressed = _switchPlayerPressed;
         }
     }
    

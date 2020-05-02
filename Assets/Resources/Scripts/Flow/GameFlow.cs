@@ -12,17 +12,22 @@ public class GameFlow : IManagable
     public void Initialize()
     {
         PlayerManager.instance.Initialize();
+        FinishPointManager.instance.Initialize();
+        EnemyManager.
     }
     public void PostInitialize()
     {
         PlayerManager.instance.PostInitialize();
+        FinishPointManager.instance.PostInitialize();
     }
     public void Refresh(float dt)
     {
         PlayerManager.instance.Refresh(dt);
+        FinishPointManager.instance.Refresh(dt);
     }
     public void PhysicsRefresh()
     {
         PlayerManager.instance.PhysicsRefresh();
+        FinishPointManager.instance.PhysicsRefresh();
     }
 }

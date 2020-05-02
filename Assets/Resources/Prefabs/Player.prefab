@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1756520061}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Feet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,9 +45,9 @@ GameObject:
   - component: {fileID: -6123764461863948838}
   - component: {fileID: 1600654210}
   - component: {fileID: 1039242967209990574}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -133,6 +133,7 @@ MonoBehaviour:
   feet: {fileID: 1756520061}
   jumpFrameTimer: 0
   jumpThresholdTime: 0
+  canMove: 0
 --- !u!50 &-7175407936068229657
 Rigidbody2D:
   serializedVersion: 4
