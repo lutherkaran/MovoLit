@@ -9,6 +9,7 @@ public class SoundManager : MonoBehaviour, IManagable
     private static SoundManager Instance;
     private SoundManager() { }
     public static SoundManager instance { get { return Instance ?? (Instance = new SoundManager()); } }
+    public bool isPlaying = true;
     #endregion
 
      GameObject go;
@@ -81,6 +82,27 @@ public class SoundManager : MonoBehaviour, IManagable
         activeSource.PlayOneShot(audioDict[name]);
         activeSource.volume = 1;
         activeSource.pitch = 1;
+    }
+    public void StopMusic(AudioSource[] audioSources)
+    {
+        if (isPlaying)
+        {
+            for (int i = 0; i < audioSources.Length; i++)
+            {
+                audioSources[i].Stop();
+                
+            }
+            isPlaying = false;
+        }
+        else
+        {
+            for (int i = 0; i < audioSources.Length; i++)
+            {
+                audioSources[i].Play();
+                
+            }
+            isPlaying = true;
+        }
     }
 
 }

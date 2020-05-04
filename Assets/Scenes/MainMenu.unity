@@ -395,7 +395,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1221718344
 RectTransform:
   m_ObjectHideFlags: 0
@@ -551,7 +551,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1369151914
 RectTransform:
   m_ObjectHideFlags: 0
@@ -624,7 +624,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1743087909
 RectTransform:
   m_ObjectHideFlags: 0
@@ -883,7 +883,7 @@ PrefabInstance:
     - target: {fileID: 50535825399339541, guid: 77a32e66b1700bc40bc060aea402fc92,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77a32e66b1700bc40bc060aea402fc92, type: 3}
@@ -894,38 +894,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 292208627}
     m_Modifications:
-    - target: {fileID: 3208462514432503656, guid: 99fbb65cf9a125b4299fb39ec8a554a2,
-        type: 3}
-      propertyPath: m_text
-      value: N E W  G A M E
-      objectReference: {fileID: 0}
-    - target: {fileID: 3208462514432503656, guid: 99fbb65cf9a125b4299fb39ec8a554a2,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 3208462514432503656, guid: 99fbb65cf9a125b4299fb39ec8a554a2,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3208462514432503656, guid: 99fbb65cf9a125b4299fb39ec8a554a2,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3208462514432503656, guid: 99fbb65cf9a125b4299fb39ec8a554a2,
-        type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: c6fd25cecc0d2c04ebd4c899beab2f7a,
-        type: 2}
-    - target: {fileID: 3208462514432503656, guid: 99fbb65cf9a125b4299fb39ec8a554a2,
-        type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 2392824107071819528, guid: c6fd25cecc0d2c04ebd4c899beab2f7a,
-        type: 2}
     - target: {fileID: 3208462514498558396, guid: 99fbb65cf9a125b4299fb39ec8a554a2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1035,11 +1003,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MainMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 3208462514498558397, guid: 99fbb65cf9a125b4299fb39ec8a554a2,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99fbb65cf9a125b4299fb39ec8a554a2, type: 3}

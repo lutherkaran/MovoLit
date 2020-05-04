@@ -6,9 +6,10 @@ public class MainEntry : MonoBehaviour
 {
     
     void Awake() {
-      /*  go = this.gameObject;
-        DontDestroyOnLoad(go);
-        SoundManager.instance.PlayMusic("Theme", go, true);*/
+        /*  go = this.gameObject;
+          DontDestroyOnLoad(go);
+          SoundManager.instance.PlayMusic("Theme", go, true);*/
+        Time.timeScale = 1;
         GameFlow.instance.Initialize();   
     }
     void Start()

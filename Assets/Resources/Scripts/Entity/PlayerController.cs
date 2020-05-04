@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour, IManagable
     Animator anim;
 
     InputManager.InputInfo inputInfo;
-    bool isAlive;
+    public bool canControl;
     private bool jump;
     public bool canMove;
     Torch torch;
@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour, IManagable
 
     public void PostInitialize()
     {
-        isAlive = true;
+        canControl = true;
         isInitialize = true;
         jumpThresholdTime = false;
         torch.Initialize();
@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour, IManagable
     {
         inputManager.InputUpdate(dt);
         
-        if (this.isAlive)
+        if (this.canControl)
         {
             inputInfo = inputManager.GetInfo();
             

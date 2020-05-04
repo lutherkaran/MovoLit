@@ -13,11 +13,13 @@ public class LevelManager :IManagable
     public GameObject[] startPoints;
     public int totalStartPoints;
     static public int currentSceneIndex;
+    public int firstSceneIndex = 0;
 
  
     public void Initialize()
     {
-        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;    
+        
 /*        Debug.Log(currentSceneIndex);*/
         startPoints=GameObject.FindGameObjectsWithTag("StartingPoint");
         totalStartPoints = startPoints.Length;
