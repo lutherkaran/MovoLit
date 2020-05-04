@@ -24,7 +24,7 @@ public class LevelManager :IManagable
        
     }
 
-    public void PhysicsRefresh()
+    public void PhysicsRefresh(float fdt)
     {
         
     }

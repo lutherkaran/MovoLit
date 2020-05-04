@@ -69,12 +69,12 @@ public class PlayerManager : IManagable
         player.PlayerSpawned();
     }
 
-    public void PhysicsRefresh()
+    public void PhysicsRefresh(float fdt)
     {
         foreach (PlayerController p in playersList)
         {
             if (p)
-                p.PhysicsRefresh();
+                p.PhysicsRefresh(fdt);
         }
     }
 

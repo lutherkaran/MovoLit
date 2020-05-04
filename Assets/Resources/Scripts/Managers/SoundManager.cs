@@ -41,7 +41,7 @@ public class SoundManager : MonoBehaviour, IManagable
         
     }
 
-    public void PhysicsRefresh()
+    public void PhysicsRefresh(float fdt)
     {
        
     }
@@ -57,6 +57,7 @@ public class SoundManager : MonoBehaviour, IManagable
     }
     public void PlayMusic(string name,GameObject go, bool loop)
     {
+        
         AudioSource activeSource =  go.AddComponent<AudioSource>();
         activeSource.clip = audioDict[name];
         activeSource.volume = 0.5f;

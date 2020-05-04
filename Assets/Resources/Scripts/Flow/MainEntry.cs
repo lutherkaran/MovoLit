@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class MainEntry : MonoBehaviour
 {
+    
     void Awake() {
-        
+      /*  go = this.gameObject;
+        DontDestroyOnLoad(go);
+        SoundManager.instance.PlayMusic("Theme", go, true);*/
         GameFlow.instance.Initialize();   
     }
     void Start()
@@ -20,6 +23,7 @@ public class MainEntry : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        GameFlow.instance.PhysicsRefresh();
+        float fdt = Time.fixedDeltaTime;
+        GameFlow.instance.PhysicsRefresh(fdt);
     }
 }

@@ -34,12 +34,12 @@ public class GameFlow : IManagable
         EnemyManager.instance.Refresh(dt);
         SoundManager.instance.Refresh(dt);
     }
-    public void PhysicsRefresh()
+    public void PhysicsRefresh(float fdt)
     {
-        LevelManager.instance.PhysicsRefresh();
-        FinishPointManager.instance.PhysicsRefresh();
-        PlayerManager.instance.PhysicsRefresh();
-        EnemyManager.instance.PhysicsRefresh();
-        SoundManager.instance.PhysicsRefresh();
+        LevelManager.instance.PhysicsRefresh(fdt);
+        FinishPointManager.instance.PhysicsRefresh(fdt);
+        PlayerManager.instance.PhysicsRefresh(fdt);
+        EnemyManager.instance.PhysicsRefresh(fdt);
+        SoundManager.instance.PhysicsRefresh(fdt);
     }
 }

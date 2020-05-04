@@ -6,5 +6,5 @@ public interface IManagable {
     void Initialize();
     void PostInitialize();
     void Refresh(float dt);
-    void PhysicsRefresh();
+    void PhysicsRefresh(float fdt);
 }

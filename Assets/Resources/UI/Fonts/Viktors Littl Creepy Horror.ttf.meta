@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 17d5699d2efb3f9489f0c4876423733d
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Viktors Littl Creepy Horror
+  fontNames:
+  - Viktors Littl Creepy Horror
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: a057b8690b82e1f45a107281115b4705, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

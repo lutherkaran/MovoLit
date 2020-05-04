@@ -25,7 +25,7 @@ public class FinishPointManager : IManagable
         }
     }
 
-    public void PhysicsRefresh()
+    public void PhysicsRefresh(float fdt)
     {
         foreach (FinishPoint fp in finishPoints)
         {
