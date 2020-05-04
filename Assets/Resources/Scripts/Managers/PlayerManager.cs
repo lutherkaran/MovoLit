@@ -15,20 +15,22 @@ public class PlayerManager : IManagable
     GameObject[] playerPrefab;
     GameObject playerParent;
     public List<PlayerController> playersList;
-    public PlayerController player { get; set; }
+    public PlayerController Player { get; set; }
     public int playerIndex;
     GameObject[] startPoints;
     /*public Dictionary<PlayerController, bool> playersDict;*/
-    
 
-    public void Initialize()
+    private void FirstInitialize()
     {
         startPoints = new GameObject[LevelManager.instance.totalStartPoints];
         startPoints = LevelManager.instance.startPoints;
         playerPrefab = new GameObject[startPoints.Length];
         playersList = new List<PlayerController>();
         playerParent = new GameObject("PlayerParent");
-     
+    }
+    public void Initialize()
+    {
+        FirstInitialize();
         SpawnPlayer();
 
         foreach (PlayerController p in playersList)
@@ -39,7 +41,7 @@ public class PlayerManager : IManagable
 
     private void SpawnPlayer()
     {
-        if (!player)
+        if (!Player)
         {
 
             for (int i = 0; i < playerPrefab.Length; i++)
@@ -49,10 +51,11 @@ public class PlayerManager : IManagable
                 playerPrefab[i].transform.SetParent(playerParent.transform);
                 playersList.Add(playerPrefab[i].GetComponent<PlayerController>());
             }
-            player = playerPrefab[0].GetComponent<PlayerController>();
+            Player = playerPrefab[0].GetComponent<PlayerController>();
             playerIndex = 0;
-            player.canMove = true;
+            Player.canMove = true;
 
+#region Unneccessary 
             /*  playersDict.Add(player,player.canMove);*/
 
             /*
@@ -65,8 +68,8 @@ public class PlayerManager : IManagable
                  player = playerPrefab[2].GetComponent<PlayerController>();
                  inActivePlayers.Add(player);*/
         }
+#endregion
 
-        player.PlayerSpawned();
     }
 
     public void PhysicsRefresh(float fdt)
@@ -92,7 +95,7 @@ public class PlayerManager : IManagable
         CanMoveInput();
         foreach (PlayerController p in playersList)
         {
-            if (p == player)
+            if (p == Player)
             {
                 p.canMove = true;
                 p.Refresh(dt);
@@ -103,7 +106,7 @@ public class PlayerManager : IManagable
             }
         }
 
-        Debug.Log(player.transform);
+       /* Debug.Log(Player.transform);*/
     }
 
     private void CanMoveInput()
@@ -113,7 +116,7 @@ public class PlayerManager : IManagable
         {
            
             int index = (playerIndex + 1) % playersList.Count;
-            player = playersList[index];
+            Player = playersList[index];
             playerIndex = index;
          
         }

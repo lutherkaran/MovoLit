@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour, IManagable
     SpriteRenderer sprite;
     Animator anim;
 
-    InputManager.InputInfo inputInfo;
+    public InputManager.InputInfo inputInfo;
     public bool canControl;
     private bool jump;
     public bool canMove;

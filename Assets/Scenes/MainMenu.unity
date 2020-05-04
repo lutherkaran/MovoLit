@@ -120,6 +120,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &143952607 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 50535825399339541, guid: 77a32e66b1700bc40bc060aea402fc92,
+    type: 3}
+  m_PrefabInstance: {fileID: 3185511378881644212}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &292208623
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,6 +138,7 @@ GameObject:
   - component: {fileID: 292208626}
   - component: {fileID: 292208625}
   - component: {fileID: 292208624}
+  - component: {fileID: 292208628}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -223,6 +230,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &292208628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 292208623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bb8f7f11b2215f46a2074e2317daefd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenuUI: {fileID: 143952607}
 --- !u!1 &1097348370
 GameObject:
   m_ObjectHideFlags: 0
@@ -894,6 +914,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 292208627}
     m_Modifications:
+    - target: {fileID: 3208462513181367820, guid: 99fbb65cf9a125b4299fb39ec8a554a2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 292208628}
+    - target: {fileID: 3208462513535988277, guid: 99fbb65cf9a125b4299fb39ec8a554a2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 292208628}
     - target: {fileID: 3208462514498558396, guid: 99fbb65cf9a125b4299fb39ec8a554a2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1004,6 +1034,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 3208462514664953577, guid: 99fbb65cf9a125b4299fb39ec8a554a2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 292208628}
+    - target: {fileID: 3208462514799430782, guid: 99fbb65cf9a125b4299fb39ec8a554a2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 292208628}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99fbb65cf9a125b4299fb39ec8a554a2, type: 3}
 --- !u!224 &3208462514827254944 stripped

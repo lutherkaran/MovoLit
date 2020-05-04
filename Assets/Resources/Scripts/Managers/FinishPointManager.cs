@@ -57,7 +57,7 @@ public class FinishPointManager : IManagable
 
         if (!LevelFinisher())
         {
-            Debug.Log("//Players have not reached yet");
+/*            Debug.Log("//Players have not reached yet");*/
         }
         else
         {
@@ -77,7 +77,7 @@ public class FinishPointManager : IManagable
             }
             else
             {
-                Debug.Log("Players have not reached yet");
+/*                Debug.Log("Players have not reached yet");*/
                 return false;
             }
         }

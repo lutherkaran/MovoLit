@@ -8,11 +8,23 @@ public class UIManager : MonoBehaviour
     bool isPaused;
     AudioSource[] audioSources;
     public GameObject pauseMenuUI;
-    PlayerController player;
+    GameObject player;
     private void Awake()
     {
-        player = FindObjectOfType<PlayerController>();
-        audioSources = FindObjectsOfType<AudioSource>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        audioSources = GameObject.FindObjectsOfType<AudioSource>();
+    }
+    void Start()
+    {
+/*        Debug.Log(player.transform);*/
+        if (!player)
+        {
+
+        }
+        for (int i = 0; i < audioSources.Length; i++)
+        {
+            Debug.Log(audioSources[i].name);
+        }
     }
     void Update()
     {
@@ -30,7 +42,7 @@ public class UIManager : MonoBehaviour
     }
 
     public void NewGameButton() {
-        LevelManager.instance.LoadNextScene(LevelManager.instance.firstSceneIndex);
+        LevelManager.instance.LoadNextScene(LevelManager.instance.firstSceneIndex+1);
     }
     
     public void LoadGameButton() { // Load Last Scene
@@ -40,14 +52,14 @@ public class UIManager : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1;
         isPaused = false;
-        player.canControl = false;
+ 
 
     }
     public void PauseGameButton() {
         pauseMenuUI.SetActive(true);
         isPaused = true;
         Time.timeScale = 0;
-        player.canControl = true;
+        
 
     }
 
