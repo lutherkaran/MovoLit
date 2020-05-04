@@ -26,7 +26,7 @@ public class InputManager
         Vector2 inputDir = new Vector2();
 
         inputDir.x = Input.GetAxisRaw("Horizontal");
-        bool throwPressed = Input.GetKeyDown(KeyCode.F);
+        bool throwPressed = Input.GetKeyDown(KeyCode.Mouse0);
         bool jumpPressed = Input.GetKeyDown(KeyCode.Space);
         bool switchPressed = Input.GetKeyDown(KeyCode.H);
         

@@ -13,7 +13,6 @@ public class FinishPointManager : IManagable
 
     List<FinishPoint> finishPoints;
 
-   
     public void Initialize()
     {
         finishPoints = new List<FinishPoint>();
@@ -55,13 +54,14 @@ public class FinishPointManager : IManagable
 
         //    fp.Refresh(dt);
         //}
+
         if (!LevelFinisher())
         {
             Debug.Log("//Players have not reached yet");
         }
         else
         {
-            Debug.Log("Game Won");
+            LevelManager.instance.LoadNextScene(LevelManager.currentSceneIndex + 1);
         }
        
        

@@ -13,7 +13,7 @@ public class PlayerManager : IManagable
 
     
     GameObject[] playerPrefab;
-    Transform PlayerParent;
+    GameObject playerParent;
     public List<PlayerController> playersList;
     public PlayerController player { get; set; }
     public int playerIndex;
@@ -27,7 +27,7 @@ public class PlayerManager : IManagable
         startPoints = LevelManager.instance.startPoints;
         playerPrefab = new GameObject[startPoints.Length];
         playersList = new List<PlayerController>();
-
+        playerParent = new GameObject("PlayerParent");
      
         SpawnPlayer();
 
@@ -46,6 +46,7 @@ public class PlayerManager : IManagable
             {
                 playerPrefab[i] = GameObject.Instantiate(Resources.Load<GameObject>("Prefabs/Player"), startPoints[i].transform.position, Quaternion.identity);
                 playerPrefab[i].name = "Player " + (i + 1);
+                playerPrefab[i].transform.SetParent(playerParent.transform);
                 playersList.Add(playerPrefab[i].GetComponent<PlayerController>());
             }
             player = playerPrefab[0].GetComponent<PlayerController>();

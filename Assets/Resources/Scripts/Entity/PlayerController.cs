@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour, IManagable
     bool isAlive;
     private bool jump;
     public bool canMove;
+    Torch torch;
 
     public void PlayerSpawned()
     {
@@ -40,6 +41,9 @@ public class PlayerController : MonoBehaviour, IManagable
         sprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         inputManager = new InputManager();
+        torch = GameObject.FindGameObjectWithTag("Torch").GetComponent<Torch>(); 
+      
+        
         
     }
 
@@ -53,6 +57,7 @@ public class PlayerController : MonoBehaviour, IManagable
         isAlive = true;
         isInitialize = true;
         jumpThresholdTime = false;
+        torch.Initialize();
     }
 
     public void Refresh(float dt)
@@ -65,9 +70,11 @@ public class PlayerController : MonoBehaviour, IManagable
             
             if (canMove)
             {
+                ThrowTorch(inputInfo.throwPressed);
                 PlayerJump(inputInfo.jumpPressed);
                 if (!jump && !jumpThresholdTime)
                     PlayerMove(inputInfo.inputDir);
+                   
 
             }
             ManageJump(dt);
@@ -77,7 +84,16 @@ public class PlayerController : MonoBehaviour, IManagable
 
     }
 
- 
+    private void ThrowTorch(bool throwPressed)
+    {
+        
+        if (throwPressed) {
+            Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f));
+            Vector3 faceDirection = worldMousePosition - transform.position;
+            torch.ThrowTorch(faceDirection);
+            SoundManager.instance.PlaySFX("Throw", this.gameObject);
+        }
+    }
 
     private void ManageJump(float dt)
     {
@@ -113,9 +129,9 @@ public class PlayerController : MonoBehaviour, IManagable
             if (!jump)
             {
                 jumpThresholdTime = true;
-                var vel = rb.velocity;
+                Vector2 velocity = rb.velocity;
                 rb.velocity = Vector2.zero;
-                rb.AddForce(new Vector2(vel.x, jumpForce), ForceMode2D.Impulse);
+                rb.AddForce(new Vector2(velocity.x, jumpForce), ForceMode2D.Impulse);
 
             }
         }
