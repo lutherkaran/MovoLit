@@ -21,12 +21,15 @@ public class PlayerController : MonoBehaviour, IManagable
     Rigidbody2D rb;
     SpriteRenderer sprite;
     Animator anim;
+    Carried carried;
 
     public InputManager.InputInfo inputInfo;
-    public bool canControl;
+    public bool isAlive;
     private bool jump;
     public bool canMove;
     Torch torch;
+    Vector2 handPos;
+    
 
     public void PlayerSpawned()
     {
@@ -35,26 +38,29 @@ public class PlayerController : MonoBehaviour, IManagable
         playerHp = PlayerHpMax;
     }
 
-    public void Initialize() {
+    public void Initialize()
+    {
 
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         inputManager = new InputManager();
-        torch = GameObject.FindGameObjectWithTag("Torch").GetComponent<Torch>(); 
-      
-        
-        
+        torch = GameObject.FindGameObjectWithTag("Torch").GetComponent<Torch>();
+        Transform handTransform = transform.Find("Hand");
+        handPos = handTransform.localPosition;
+        GameObject.Destroy(handTransform.gameObject);
+
+
     }
 
     public void PhysicsRefresh(float fdt)
     {
-    
+
     }
 
     public void PostInitialize()
     {
-        canControl = true;
+        isAlive = true;
         isInitialize = true;
         jumpThresholdTime = false;
         torch.Initialize();
@@ -63,18 +69,29 @@ public class PlayerController : MonoBehaviour, IManagable
     public void Refresh(float dt)
     {
         inputManager.InputUpdate(dt);
-        
-        if (this.canControl)
+
+        if (this.isAlive)
         {
             inputInfo = inputManager.GetInfo();
-            
+
             if (canMove)
             {
-                ThrowTorch(inputInfo.throwPressed);
+                if (inputInfo.throwPressed)
+                {
+                   /* Debug.Log("Pressed");*/
+                    if (carried)
+                    {
+                        GameObject throwObject = DetachObject();
+                        ThrowTorch(throwObject);
+                    }
+                    else
+                        Pickup();
+                }
+
                 PlayerJump(inputInfo.jumpPressed);
                 if (!jump && !jumpThresholdTime)
                     PlayerMove(inputInfo.inputDir);
-                   
+
 
             }
             ManageJump(dt);
@@ -84,15 +101,60 @@ public class PlayerController : MonoBehaviour, IManagable
 
     }
 
-    private void ThrowTorch(bool throwPressed)
+    private void ThrowTorch(GameObject throwingObject)
     {
-        
-        if (throwPressed) {
-            Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f));
-            Vector3 faceDirection = worldMousePosition - transform.position;
-            torch.ThrowTorch(faceDirection);
-            SoundManager.instance.PlaySFX("Throw", this.gameObject);
+
+        Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f));
+        Vector3 faceDirection = worldMousePosition - transform.position;
+        var aimAngle = Mathf.Atan2(faceDirection.y, faceDirection.x);
+        if (aimAngle < 0f)
+        {
+            aimAngle = Mathf.PI * 2 + aimAngle;
         }
+        var aimDirection = Quaternion.Euler(0, 0, aimAngle * Mathf.Rad2Deg) * Vector2.right;
+        // Vector2 dir = (Vector2)throwingObject.transform.position * faceDirection ;
+        Torch t = throwingObject.GetComponent<Torch>();
+        if (t)
+        {
+            t.rb.AddForce(aimDirection.normalized * t.force, ForceMode2D.Impulse);
+            Physics2D.IgnoreCollision(this.GetComponent<Collider2D>(), t.GetComponent<Collider2D>());
+            SoundManager.instance.PlaySFX("Throw", this.gameObject);
+            
+            /*
+            torch.ThrowTorch(faceDirection);*/
+        }
+    }
+
+    private GameObject DetachObject()
+    {
+        GameObject dropedObject = carried.gameObject;
+        carried.Dropped();
+        carried = null;
+        return dropedObject;
+
+    }
+
+    private Collider2D FindTorch(float radius)
+    {
+        Collider2D colli = Physics2D.OverlapCircle(transform.position, radius, LayerMask.GetMask("Torch"));
+        if (colli)
+        {
+            Debug.Log(colli.name);
+        }
+        return colli;
+
+    }
+
+    private void Pickup()
+    {
+        Collider2D torchfound = FindTorch(2f);
+        if (torchfound)
+            PickupObject(torchfound.transform.gameObject);
+    }
+
+    private void PickupObject(GameObject go)
+    {
+        carried = Carried.PickUpObject(go, this.transform, handPos);
     }
 
     private void ManageJump(float dt)
@@ -113,17 +175,18 @@ public class PlayerController : MonoBehaviour, IManagable
     {
         if (dir.x == -1 || dir.x == 1)
         {
+        
             if (dir.x == -1) { sprite.flipX = true; }
             else { sprite.flipX = false; }
             rb.velocity = dir.normalized * speed;
-           
+
         }
-        
+
     }
 
     private void PlayerJump(bool jumpPressed)
     {
-       
+
         if (jumpPressed)
         {
             if (!jump)
@@ -151,13 +214,13 @@ public class PlayerController : MonoBehaviour, IManagable
     private bool Grounded()
     {
         return Physics2D.OverlapCircle(feet.transform.position, 0.2f, LayerMask.GetMask("Ground"));
-        
+
     }
 
     private void PlayerAnimationStates()
     {
         anim.SetBool("isJumping", jump);
         if (!jump)
-            anim.SetFloat("Speed", Mathf.Abs(rb.velocity.magnitude));        
+            anim.SetFloat("Speed", Mathf.Abs(rb.velocity.magnitude));
     }
 }

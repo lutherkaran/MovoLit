@@ -11,7 +11,7 @@ public class PlayerManager : IManagable
     public static PlayerManager instance { get { return Instance ?? (Instance = new PlayerManager()); } }
     #endregion
 
-    
+
     GameObject[] playerPrefab;
     GameObject playerParent;
     public List<PlayerController> playersList;
@@ -55,7 +55,7 @@ public class PlayerManager : IManagable
             playerIndex = 0;
             Player.canMove = true;
 
-#region Unneccessary 
+            #region Unneccessary 
             /*  playersDict.Add(player,player.canMove);*/
 
             /*
@@ -68,7 +68,7 @@ public class PlayerManager : IManagable
                  player = playerPrefab[2].GetComponent<PlayerController>();
                  inActivePlayers.Add(player);*/
         }
-#endregion
+        #endregion
 
     }
 
@@ -106,7 +106,7 @@ public class PlayerManager : IManagable
             }
         }
 
-       /* Debug.Log(Player.transform);*/
+        /* Debug.Log(Player.transform);*/
     }
 
     private void CanMoveInput()
@@ -114,11 +114,11 @@ public class PlayerManager : IManagable
 
         if (Input.GetKeyDown(KeyCode.G))
         {
-           
+
             int index = (playerIndex + 1) % playersList.Count;
             Player = playersList[index];
             playerIndex = index;
-         
+
         }
     }
 }
