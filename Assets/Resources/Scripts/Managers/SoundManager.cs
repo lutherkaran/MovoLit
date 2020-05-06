@@ -49,7 +49,7 @@ public class SoundManager : MonoBehaviour, IManagable
 
     public void PostInitialize()
     {
-      // SoundManager.instance.PlayMusic("Theme", go, true);
+      SoundManager.instance.PlayMusic("Theme", go, true);
     }
 
     public void Refresh(float dt)

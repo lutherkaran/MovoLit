@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour, IManagable
                 if (!jump && !jumpThresholdTime)
                 {
                     PlayerMove(inputInfo.inputDir);
-                    SoundManager.instance.PlaySFX("Run", this.gameObject);
+                    //SoundManager.instance.PlaySFX("Run", this.gameObject);
                 }
 
 
@@ -150,7 +150,7 @@ public class PlayerController : MonoBehaviour, IManagable
 
     private void Pickup()
     {
-        Collider2D torchfound = FindTorch(2f);
+        Collider2D torchfound = FindTorch(1f);
         if (torchfound)
             PickupObject(torchfound.transform.gameObject);
     }
