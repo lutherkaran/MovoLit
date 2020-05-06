@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour, IManagable
     public bool canMove;
     Torch torch;
     Vector2 handPos;
-    
+
 
     public void PlayerSpawned()
     {
@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour, IManagable
             {
                 if (inputInfo.throwPressed)
                 {
-                   /* Debug.Log("Pressed");*/
+                    /* Debug.Log("Pressed");*/
                     if (carried)
                     {
                         GameObject throwObject = DetachObject();
@@ -90,7 +90,10 @@ public class PlayerController : MonoBehaviour, IManagable
 
                 PlayerJump(inputInfo.jumpPressed);
                 if (!jump && !jumpThresholdTime)
+                {
                     PlayerMove(inputInfo.inputDir);
+                    SoundManager.instance.PlaySFX("Run", this.gameObject);
+                }
 
 
             }
@@ -119,7 +122,7 @@ public class PlayerController : MonoBehaviour, IManagable
             t.rb.AddForce(aimDirection.normalized * t.force, ForceMode2D.Impulse);
             Physics2D.IgnoreCollision(this.GetComponent<Collider2D>(), t.GetComponent<Collider2D>());
             SoundManager.instance.PlaySFX("Throw", this.gameObject);
-            
+
             /*
             torch.ThrowTorch(faceDirection);*/
         }
@@ -175,10 +178,11 @@ public class PlayerController : MonoBehaviour, IManagable
     {
         if (dir.x == -1 || dir.x == 1)
         {
-        
+
             if (dir.x == -1) { sprite.flipX = true; }
             else { sprite.flipX = false; }
             rb.velocity = dir.normalized * speed;
+           
 
         }
 
