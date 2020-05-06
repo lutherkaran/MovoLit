@@ -50,3 +50,6 @@ TagManager:
   - name: Player
     uniqueID: 2993376265
     locked: 0
+  - name: StartFinishPoints
+    uniqueID: 2421488019
+    locked: 0
