@@ -228,4 +228,5 @@ public class PlayerController : MonoBehaviour, IManagable
         if (!jump)
             anim.SetFloat("Speed", Mathf.Abs(rb.velocity.magnitude));
     }
+
 }

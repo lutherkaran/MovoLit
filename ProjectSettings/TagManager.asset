@@ -53,3 +53,6 @@ TagManager:
   - name: StartFinishPoints
     uniqueID: 2421488019
     locked: 0
+  - name: Enemy
+    uniqueID: 4155067613
+    locked: 0
