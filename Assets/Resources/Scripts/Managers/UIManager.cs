@@ -67,7 +67,7 @@ public class UIManager : MonoBehaviour
         Application.Quit();
     }
 
-    public void RestartGameButton() {
+    public void RestartButton() {
         LevelManager.instance.LoadNextScene(LevelManager.currentSceneIndex);
     }
 
@@ -84,7 +84,10 @@ public class UIManager : MonoBehaviour
             SoundManager.instance.isPlaying = true;
         }
 
-        
+    }
+    public void RestartGameButton()
+    {
+        LevelManager.instance.LoadNextScene(LevelManager.instance.firstSceneIndex);
     }
     
 
