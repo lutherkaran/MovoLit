@@ -8,6 +8,7 @@ public class Ghost : EnemyUnit
     {
         base.Initialize();
         enemyType = EnemyType.Ghosts;
+        sprite.color = Random.ColorHSV();
 
     }
     public override void PostInitialize()
