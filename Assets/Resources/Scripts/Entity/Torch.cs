@@ -40,7 +40,7 @@ public class Torch :MonoBehaviour
         {
             if (torchPickText.gameObject != null)
             {
-                if (!isPickedUp)
+                if (!isPickedUp && Mathf.Abs(rb.velocity.x) < 2f && Mathf.Abs(rb.velocity.y) < 2f)
                 {
                     Collider2D col = Physics2D.OverlapCircle(transform.position, .5f, LayerMask.GetMask("Player"));
                     if (col)

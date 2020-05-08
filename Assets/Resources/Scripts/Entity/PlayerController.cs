@@ -94,8 +94,12 @@ public class PlayerController : MonoBehaviour, IManagable
                     PlayerMove(inputInfo.inputDir);
                     //SoundManager.instance.PlaySFX("Run", this.gameObject);
                 }
-
-
+            }
+            else
+            {
+                Debug.Log("Animator working");
+                jump = false;
+                rb.velocity = Vector2.zero;
             }
             ManageJump(dt);
             GravityCheck();
