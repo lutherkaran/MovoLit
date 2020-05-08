@@ -31,8 +31,8 @@ public class Carried : MonoBehaviour
     }
     public void Dropped()
     {
-        originalParent = transform.parent;
-        transform.SetParent(originalParent);
+        //originalParent = transform.parent;
+        transform.SetParent(null);
         if (collision)
             collision.enabled = initialColiState;
         if (rb)

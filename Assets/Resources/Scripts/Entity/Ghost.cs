@@ -9,7 +9,7 @@ public class Ghost : EnemyUnit
         base.Initialize();
         enemyType = EnemyType.Ghosts;
         sprite.color = Random.ColorHSV();
-
+        SoundManager.instance.PlaySFX("EnemySpawn", this.gameObject);
     }
     public override void PostInitialize()
     {
@@ -18,9 +18,18 @@ public class Ghost : EnemyUnit
     public override void Refresh(float dt)
     {
         base.Refresh(dt);
-       
-            if (target)
+        if (!targetsWithTorch)
+        {
+            FindCloseTarget();
+        }
+        else
+        {
+            if (targetFound)
+            {
+                RotateTowardsTarget();
                 FollowTarget(dt);
+            }
+        }
     }
     public override void PhysicsRefresh(float fdt)
     {
