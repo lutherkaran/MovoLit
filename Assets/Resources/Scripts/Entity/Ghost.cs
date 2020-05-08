@@ -18,7 +18,7 @@ public class Ghost : EnemyUnit
     public override void Refresh(float dt)
     {
         base.Refresh(dt);
-        if (!targetsWithTorch)
+        if (targetsWithTorch)
         {
             FindCloseTarget();
         }
