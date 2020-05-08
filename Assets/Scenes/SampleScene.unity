@@ -2055,6 +2055,68 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1838167969614482629, guid: aae4127b8c747e54d8eebb17c0c78821,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1838167969614482629, guid: aae4127b8c747e54d8eebb17c0c78821,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1838167969614482629, guid: aae4127b8c747e54d8eebb17c0c78821,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1838167969614482629, guid: aae4127b8c747e54d8eebb17c0c78821,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1838167969614482629, guid: aae4127b8c747e54d8eebb17c0c78821,
+        type: 3}
+      propertyPath: m_isRichText
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1838167969614482629, guid: aae4127b8c747e54d8eebb17c0c78821,
+        type: 3}
+      propertyPath: m_spriteAsset
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1838167969614482629, guid: aae4127b8c747e54d8eebb17c0c78821,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: c6fd25cecc0d2c04ebd4c899beab2f7a,
+        type: 2}
+    - target: {fileID: 1838167969614482629, guid: aae4127b8c747e54d8eebb17c0c78821,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2392824107071819528, guid: c6fd25cecc0d2c04ebd4c899beab2f7a,
+        type: 2}
+    - target: {fileID: 1838167969614482629, guid: aae4127b8c747e54d8eebb17c0c78821,
+        type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1838167969614482629, guid: aae4127b8c747e54d8eebb17c0c78821,
+        type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1838167969614482629, guid: aae4127b8c747e54d8eebb17c0c78821,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 1838167969614482629, guid: aae4127b8c747e54d8eebb17c0c78821,
+        type: 3}
+      propertyPath: m_textAlignment
+      value: 258
+      objectReference: {fileID: 0}
     - target: {fileID: 1838167971538264597, guid: aae4127b8c747e54d8eebb17c0c78821,
         type: 3}
       propertyPath: m_Name

@@ -10,7 +10,7 @@ public class Torch :MonoBehaviour
 
     TextMeshProUGUI torchPickText;
     RectTransform torchTextTransform;
-    Vector3 textOffset = new Vector3(3.2f, 1, 0);
+    Vector3 textOffset = new Vector3(0, 1, 0);
 
     private Camera cam;
 
@@ -25,7 +25,6 @@ public class Torch :MonoBehaviour
         {
             torchPickText = GameObject.FindGameObjectWithTag("TorchText").GetComponent<TextMeshProUGUI>();
             torchTextTransform = torchPickText.GetComponent<RectTransform>();
-           // torchTextTransform.position = Camera.main.WorldToScreenPoint(transform.position + textOffset);
         }
         catch (System.Exception e)
         {
