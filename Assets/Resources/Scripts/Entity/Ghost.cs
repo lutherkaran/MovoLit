@@ -18,18 +18,15 @@ public class Ghost : EnemyUnit
     public override void Refresh(float dt)
     {
         base.Refresh(dt);
-        if (targetsWithTorch)
+        
+        if (!targetsWithoutTorch)
         {
             FindCloseTarget();
+            RotateTowardsTarget();
         }
-        else
-        {
-            if (targetFound)
-            {
-                RotateTowardsTarget();
-                FollowTarget(dt);
-            }
-        }
+       
+        FollowTarget(dt);
+
     }
     public override void PhysicsRefresh(float fdt)
     {

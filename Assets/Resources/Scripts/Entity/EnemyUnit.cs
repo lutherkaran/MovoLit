@@ -15,7 +15,7 @@ public abstract class EnemyUnit : MonoBehaviour ,IManagable
     Vector3 direction;
     public Vector3 InitialPosition;
     public float speed;
-    public bool targetsWithTorch;
+    public bool targetsWithoutTorch;
     public EnemyType enemyType;
 
     public bool targetFound { get; private set; }
@@ -40,7 +40,7 @@ public abstract class EnemyUnit : MonoBehaviour ,IManagable
 
     public virtual void Refresh(float dt)
     {
-        UnityEngine.Debug.Log("Fuck");
+/*        UnityEngine.Debug.Log("Fuck");*/
         FindTarget();
     }
 
@@ -54,15 +54,20 @@ public abstract class EnemyUnit : MonoBehaviour ,IManagable
                 targetFound = true;
                 target = Player[i].transform.position;
                 
-            }
             direction = target - transform.position;
+            }
+            else{
+                Vector3 moveRandom = new Vector3(UnityEngine.Random.Range(-10,10), UnityEngine.Random.Range(-10, 10),0);
+                direction = moveRandom - transform.position;
+            }
         }
+        
       
     }
     public void FollowTarget(float dt)
     {
       
-        if (targetFound)
+        if (targetsWithoutTorch)
         {
             transform.position += direction.normalized * speed * dt;
         }
@@ -78,28 +83,34 @@ public abstract class EnemyUnit : MonoBehaviour ,IManagable
         }
     }
     public void FindCloseTarget()
-    {
+    { 
         for(int i = 0; i < Player.Length; i++)
         {
-            float[] distance = new float[Player.Length];
-            if(!(Player[i].GetComponentInChildren<Torch>()))
+            Transform[] playerTransform = new Transform[Player.Length];
+            if (!(Player[i].GetComponentInChildren<Torch>()))
             {
-                 /*distance = Player[i].transform.position.magnitude;*/
-
-
-                /*float closeTargetDistance_1 = Vector3.Distance(this.transform.position, Player[i].transform.position);
-                float closeTargetDistance_2 = Vector3.Distance(this.transform.position, Player[Player.Length].transform.position);
-                if (closeTargetDistance_1 < closeTargetDistance_2)
-                {
-                    UnityEngine.Debug.Log("Distance: " + closeTargetDistance_1);
-                }
-                else
-                {
-                    UnityEngine.Debug.Log("Distance: " + closeTargetDistance_2);
-                }
-                targetsWithTorch = true;*/
+               
+                playerTransform[i] = Player[i].GetComponent<Transform>();
+                targetsWithoutTorch = true;
+                direction = GetClosetTargetsTransfrom(playerTransform);
+                
             }
-
         }
+    }
+    Vector3 GetClosetTargetsTransfrom(Transform[] players)
+    {
+        Transform minTransform = null;
+        float minDist = Mathf.Infinity;
+        Vector3 currentPos = transform.position;
+        foreach (Transform t in players)
+        {
+            float dist = Vector3.Distance(t.position, currentPos);
+            if (dist < minDist)
+            {
+                minTransform = t;
+                minDist = dist;
+            }
+        }
+        return minTransform.position;
     }
 }
