@@ -10,6 +10,7 @@ TagManager:
   - Torch
   - FinishPoint
   - StartingPoint
+  - TorchText
   layers:
   - Default
   - TransparentFX

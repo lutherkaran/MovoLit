@@ -7,7 +7,7 @@ public class SoundManager : MonoBehaviour, IManagable
    
     #region Singleton
     private static SoundManager Instance;
-    private SoundManager() { }
+  //  private SoundManager() { }
     public static SoundManager instance { get { return Instance ?? (Instance = new SoundManager()); } }
     public bool isPlaying = true;
     #endregion

@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour, IManagable
     public void Refresh(float dt)
     {
         inputManager.InputUpdate(dt);
-
+        torch.Refresh();
         if (this.isAlive)
         {
             inputInfo = inputManager.GetInfo();
@@ -142,7 +142,7 @@ public class PlayerController : MonoBehaviour, IManagable
         Collider2D colli = Physics2D.OverlapCircle(transform.position, radius, LayerMask.GetMask("Torch"));
         if (colli)
         {
-            Debug.Log(colli.name);
+           // Debug.Log(colli.name);
         }
         return colli;
 
