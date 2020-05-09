@@ -92,7 +92,7 @@ public class PlayerManager : IManagable
 
     public void Refresh(float dt)
     {
-        CanMoveInput();
+       // CanMoveInput();
         foreach (PlayerController p in playersList)
         {
             //if (p == Player)
@@ -117,7 +117,7 @@ public class PlayerManager : IManagable
         /* Debug.Log(Player.transform);*/
     }
 
-    private void CanMoveInput()
+    /*private void CanMoveInput()
     {
 
         if (Input.GetKeyDown(KeyCode.G))
@@ -128,5 +128,5 @@ public class PlayerManager : IManagable
             playerIndex = index;
 
         }
-    }
+    }*/
 }

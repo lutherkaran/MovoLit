@@ -28,7 +28,7 @@ public class InputManager
         inputDir.x = Input.GetAxisRaw("Horizontal");
         bool throwPressed = Input.GetKeyDown(KeyCode.Mouse0);
         bool jumpPressed = Input.GetKeyDown(KeyCode.Space);
-        bool switchPressed = Input.GetKeyDown(KeyCode.H);
+        bool switchPressed = Input.GetKeyDown(KeyCode.G);
         
         return new InputInfo(inputDir, throwPressed, jumpPressed,switchPressed);
     }
