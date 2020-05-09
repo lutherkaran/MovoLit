@@ -65,6 +65,7 @@ public class EnemyManager : IManagable
         EnemyUnit newEnemy;
 
         newEnemy = GameObject.Instantiate(enemyPrefabDict[enemy], pos, Quaternion.identity, parent).transform.GetComponentInChildren<EnemyUnit>();
+      
         newEnemy.Initialize();
         newEnemy.PostInitialize();
         EnemyUnitsList.Add(newEnemy);

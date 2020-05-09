@@ -14,30 +14,50 @@ public class LevelManager :IManagable
     public int totalStartPoints;
     static public int currentSceneIndex;
     public int firstSceneIndex = 0;
+    public List<EnemySpawnner> enemySpawnners;
 
  
     public void Initialize()
     {
-        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;    
-        
-/*        Debug.Log(currentSceneIndex);*/
-        startPoints=GameObject.FindGameObjectsWithTag("StartingPoint");
+        FirstInitialze();
+        foreach(EnemySpawnner spawnner in enemySpawnners)
+        {
+            spawnner.Initialize();
+        }
+
+    }
+
+    private void FirstInitialze()
+    {
+        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        /*Debug.Log(currentSceneIndex);*/
+        startPoints = GameObject.FindGameObjectsWithTag("StartingPoint");
         totalStartPoints = startPoints.Length;
-       
+        enemySpawnners = new List<EnemySpawnner>();
     }
 
     public void PhysicsRefresh(float fdt)
     {
-        
+        foreach (EnemySpawnner spawnner in enemySpawnners)
+        {
+            spawnner.PhysicsRefresh(fdt);
+        }
     }
 
     public void PostInitialize()
     {
-        
+        foreach (EnemySpawnner spawnner in enemySpawnners)
+        {
+            spawnner.PostInitialize();
+        }
     }
 
     public void Refresh(float dt)
     {
+        foreach (EnemySpawnner spawnner in enemySpawnners)
+        {
+            spawnner.Refresh(dt);
+        }
     }
     public void LoadNextScene(int sceneIndex)
     {

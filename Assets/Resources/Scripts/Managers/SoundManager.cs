@@ -65,6 +65,7 @@ public class SoundManager : MonoBehaviour, IManagable
         activeSource.pitch = 0.8f;
         activeSource.Play();
         activeSource.loop = loop;
+        isPlaying = true;
 
     }
     public void PlaySFX(string name,GameObject go)
@@ -82,6 +83,7 @@ public class SoundManager : MonoBehaviour, IManagable
         activeSource.PlayOneShot(audioDict[name]);
         activeSource.volume = 1;
         activeSource.pitch = 1;
+        isPlaying = true;
     }
     public void StopMusic(AudioSource[] audioSources)
     {
