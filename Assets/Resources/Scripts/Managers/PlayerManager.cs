@@ -95,15 +95,23 @@ public class PlayerManager : IManagable
         CanMoveInput();
         foreach (PlayerController p in playersList)
         {
-            if (p == Player)
-            {
-                p.canMove = true;
+            //if (p == Player)
+          //  {
+            //    p.canMove = true;
                 p.Refresh(dt);
-            }
-            else
+
+            if (playersList.Count > 1)
             {
-                p.canMove = false;
+                if (p.inputInfo.switchPlayerPressed)
+                {
+                    p.canMove = !p.canMove;
+                }
             }
+            // }
+            // else
+            //  {
+            //      p.canMove = false;
+            //  }
         }
 
         /* Debug.Log(Player.transform);*/

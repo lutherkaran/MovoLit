@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour, IManagable
     public float jumpForce;
     public Transform feet;
     readonly static float PlayerHpMax = 100;
-    const float MaxGravity = -12f;
+    const float MaxGravity = -14f;
     private float playerHp = PlayerHpMax;
 
     public float jumpFrameTimer = 0;
@@ -49,8 +49,6 @@ public class PlayerController : MonoBehaviour, IManagable
         Transform handTransform = transform.Find("Hand");
         handPos = handTransform.localPosition;
         GameObject.Destroy(handTransform.gameObject);
-
-
     }
 
     public void PhysicsRefresh(float fdt)
@@ -89,7 +87,7 @@ public class PlayerController : MonoBehaviour, IManagable
                 }
 
                 PlayerJump(inputInfo.jumpPressed);
-                if (!jump && !jumpThresholdTime)
+                //if (!jump && !jumpThresholdTime)
                 {
                     PlayerMove(inputInfo.inputDir);
                     //SoundManager.instance.PlaySFX("Run", this.gameObject);
@@ -99,7 +97,7 @@ public class PlayerController : MonoBehaviour, IManagable
             {
                 Debug.Log("Animator working");
                 jump = false;
-                rb.velocity = Vector2.zero;
+                rb.velocity = new Vector2(0, rb.velocity.y);
             }
             ManageJump(dt);
             GravityCheck();
@@ -180,14 +178,16 @@ public class PlayerController : MonoBehaviour, IManagable
 
     private void PlayerMove(Vector2 dir)
     {
-        if (dir.x == -1 || dir.x == 1)
+        if (dir.x != 0)// == -1 || dir.x == 1)
         {
-
-            if (dir.x == -1) { sprite.flipX = true; }
+            if (dir.x < -0.1f) { sprite.flipX = true; }
             else { sprite.flipX = false; }
-            rb.velocity = dir.normalized * speed;
-           
-
+            rb.velocity = new Vector2(dir.x * speed * Time.deltaTime, rb.velocity.y) ;
+        }
+        else
+        {
+            if (!jump)
+                rb.velocity = new Vector2(0, rb.velocity.y);
         }
 
     }
@@ -201,8 +201,8 @@ public class PlayerController : MonoBehaviour, IManagable
             {
                 jumpThresholdTime = true;
                 Vector2 velocity = rb.velocity;
-                rb.velocity = Vector2.zero;
-                rb.AddForce(new Vector2(velocity.x, jumpForce), ForceMode2D.Impulse);
+                //rb.velocity = Vector2.zero;
+                rb.AddForce(new Vector2(velocity.x, jumpForce) * Time.fixedDeltaTime, ForceMode2D.Impulse);
 
             }
         }
@@ -223,7 +223,6 @@ public class PlayerController : MonoBehaviour, IManagable
 
     {
         return Physics2D.OverlapCircle(feet.transform.position, 0.2f, LayerMask.GetMask("Ground"));
-
     }
 
     private void PlayerAnimationStates()
