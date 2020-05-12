@@ -27,10 +27,11 @@ public class InputManager
 
         inputDir.x = Input.GetAxisRaw("Horizontal");
         bool throwPressed = Input.GetKeyDown(KeyCode.Mouse0);
+        bool pickUp = Input.GetKeyDown(KeyCode.E);
         bool jumpPressed = Input.GetKeyDown(KeyCode.Space);
         bool switchPressed = Input.GetKeyDown(KeyCode.G);
         
-        return new InputInfo(inputDir, throwPressed, jumpPressed,switchPressed);
+        return new InputInfo(inputDir, pickUp,throwPressed, jumpPressed,switchPressed);
     }
     public class InputInfo
     {
@@ -38,13 +39,15 @@ public class InputManager
         public bool throwPressed;
         public bool jumpPressed;
         public bool switchPlayerPressed;
+        public bool pickUp;
 
-        public InputInfo(Vector2 _inputDir, bool _throwPressed, bool _jumpPressed, bool _switchPlayerPressed)
+        public InputInfo(Vector2 _inputDir, bool _pickUp, bool _throwPressed, bool _jumpPressed, bool _switchPlayerPressed)
         {
             this.inputDir = _inputDir;
             this.throwPressed = _throwPressed;
             this.jumpPressed = _jumpPressed;
             this.switchPlayerPressed = _switchPlayerPressed;
+            this.pickUp = _pickUp;
         }
     }
    

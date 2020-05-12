@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour, IManagable
     public bool canMove;
     Torch torch;
     Vector2 handPos;
+    Vector2 handOffset;
 
 
     public void PlayerSpawned()
@@ -48,6 +49,7 @@ public class PlayerController : MonoBehaviour, IManagable
         torch = GameObject.FindGameObjectWithTag("Torch").GetComponent<Torch>();
         Transform handTransform = transform.Find("Hand");
         handPos = handTransform.localPosition;
+        handOffset = new Vector2(0.5f, 0.5f);
         GameObject.Destroy(handTransform.gameObject);
     }
 
@@ -82,9 +84,10 @@ public class PlayerController : MonoBehaviour, IManagable
                         GameObject throwObject = DetachObject();
                         ThrowTorch(throwObject);
                     }
-                    else
-                        Pickup();
+                    
                 }
+                if (inputInfo.pickUp)
+                    Pickup();
 
                 PlayerJump(inputInfo.jumpPressed);
                 //if (!jump && !jumpThresholdTime)
@@ -144,7 +147,7 @@ public class PlayerController : MonoBehaviour, IManagable
         Collider2D colli = Physics2D.OverlapCircle(transform.position, radius, LayerMask.GetMask("Torch"));
         if (colli)
         {
-           // Debug.Log(colli.name);
+            Debug.Log(colli.name);
         }
         return colli;
 
@@ -152,14 +155,14 @@ public class PlayerController : MonoBehaviour, IManagable
 
     private void Pickup()
     {
-        Collider2D torchfound = FindTorch(1f);
+        Collider2D torchfound = FindTorch(2f);
         if (torchfound)
             PickupObject(torchfound.transform.gameObject);
     }
 
     private void PickupObject(GameObject go)
     {
-        carried = Carried.PickUpObject(go, this.transform, handPos);
+        carried = Carried.PickUpObject(go, this.transform, handPos+handOffset);
     }
 
     private void ManageJump(float dt)

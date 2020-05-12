@@ -12,7 +12,7 @@ public class Torch :MonoBehaviour
     RectTransform torchTextTransform;
     Vector3 textOffset = new Vector3(0, 1, 0);
 
-    private Camera cam;
+    private Camera cam; 
 
     bool isPickedUp = false;
 

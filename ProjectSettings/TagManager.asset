@@ -57,3 +57,6 @@ TagManager:
   - name: Enemy
     uniqueID: 4155067613
     locked: 0
+  - name: Torch
+    uniqueID: 1940696039
+    locked: 0

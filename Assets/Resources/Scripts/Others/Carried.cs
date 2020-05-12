@@ -39,7 +39,7 @@ public class Carried : MonoBehaviour
         {
             rb.bodyType = RigidbodyType2D.Dynamic;
             rb.gravityScale = 1;
-            rb.freezeRotation = false;
+            rb.freezeRotation = true;
         }
         Destroy(this);
     }
