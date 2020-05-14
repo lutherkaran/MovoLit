@@ -183,8 +183,12 @@ public class PlayerController : MonoBehaviour, IManagable
     {
         if (dir.x != 0)// == -1 || dir.x == 1)
         {
-            if (dir.x < -0.1f) { sprite.flipX = true; }
-            else { sprite.flipX = false; }
+            if (dir.x < -0.1f) { transform.rotation = Quaternion.Euler(0, 180, 0); }
+            else {
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+
+                //sprite.flipX = false; 
+            }
             rb.velocity = new Vector2(dir.x * speed * Time.deltaTime, rb.velocity.y) ;
         }
         else

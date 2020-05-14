@@ -21,7 +21,7 @@ public class SoundManager : MonoBehaviour, IManagable
     {
         if (!go)
         {
-            go = new GameObject("AudioManager");
+           go = new GameObject("AudioManager");
             go.AddComponent<SoundManager>();
         }
         else {
