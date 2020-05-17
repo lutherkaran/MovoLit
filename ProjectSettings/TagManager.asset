@@ -12,6 +12,7 @@ TagManager:
   - StartingPoint
   - TorchText
   - CenterPoint
+  - DeadZones
   layers:
   - Default
   - TransparentFX
@@ -30,7 +31,7 @@ TagManager:
   - StartingPoint
   - PlayerWallCollision
   - TorchPassGround
-  - 
+  - DeadZones
   - 
   - 
   - 

@@ -55,7 +55,12 @@ public class PlayerController : MonoBehaviour, IManagable
 
     public void PhysicsRefresh(float fdt)
     {
-
+        if (isAlive)
+        {
+            VelocityCheck();
+            PlayerJump(inputInfo.jumpPressed);
+            PlayerMove(inputInfo.inputDir);
+        }
     }
 
     public void PostInitialize()
@@ -71,8 +76,7 @@ public class PlayerController : MonoBehaviour, IManagable
         inputManager.InputUpdate(dt);
         torch.Refresh();
         if (this.isAlive)
-        {
-            VelocityCheck();
+        {            
             inputInfo = inputManager.GetInfo();
 
             if (canMove)
@@ -85,17 +89,11 @@ public class PlayerController : MonoBehaviour, IManagable
                         GameObject throwObject = DetachObject();
                         ThrowTorch(throwObject);
                     }
-                    
                 }
                 if (inputInfo.pickUp)
                     Pickup();
-
-                PlayerJump(inputInfo.jumpPressed);
-                //if (!jump && !jumpThresholdTime)
-                {
-                    PlayerMove(inputInfo.inputDir);
-                    //SoundManager.instance.PlaySFX("Run", this.gameObject);
-                }
+               //SoundManager.instance.PlaySFX("Run", this.gameObject);
+                
             }
             else
             {
@@ -190,7 +188,7 @@ public class PlayerController : MonoBehaviour, IManagable
 
                 //sprite.flipX = false; 
             }
-            rb.velocity = new Vector2(dir.x * speed * Time.deltaTime, rb.velocity.y) ;
+            rb.velocity = new Vector2(dir.x * speed * Time.fixedDeltaTime, rb.velocity.y) ;
         }
         else
         {
@@ -230,7 +228,7 @@ public class PlayerController : MonoBehaviour, IManagable
     private bool Grounded()
 
     {
-        return Physics2D.OverlapCircle(feet.transform.position, 0.4f, LayerMask.GetMask("Ground","TorchPassGround"));
+        return Physics2D.OverlapCircle(feet.transform.position, 0.2f, LayerMask.GetMask("Ground","TorchPassGround"));
     }
 
     private void PlayerAnimationStates()
