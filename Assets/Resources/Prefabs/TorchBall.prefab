@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4212026361540574112}
   - component: {fileID: -830067948395943066}
   - component: {fileID: 5947813650825331558}
-  - component: {fileID: 656116019}
+  - component: {fileID: 5773483952170748422}
   m_Layer: 11
   m_Name: TorchBall
   m_TagString: Torch
@@ -152,11 +152,11 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.45, y: -0.48}
-  m_Size: {x: 0.22, y: 0.11}
+  m_Offset: {x: -0.4, y: -0.44}
+  m_Size: {x: 0.09, y: 0.0001}
   m_Direction: 0
---- !u!70 &656116019
-CapsuleCollider2D:
+--- !u!60 &5773483952170748422
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -168,6 +168,18 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.24282819, y: 0}
-  m_Size: {x: 0.5143436, y: 1.07}
-  m_Direction: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1.07}
+    newSize: {x: 0.96875, y: 3.4375}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.4002684, y: -0.4337693}
+      - {x: -0.08673295, y: -0.01748678}
+      - {x: -0.0326515, y: -0.10675007}

@@ -9,6 +9,7 @@ public class Carried : MonoBehaviour
     Transform originalParent;
     bool initialColiState;
     RigidbodyType2D initailBodyType;
+   
 
     void PickedUp()
     {

@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour, IManagable
     Torch torch;
     Vector2 handPos;
     Vector2 handOffset;
-
+	Transform handTransform;
 
     public void PlayerSpawned()
     {
@@ -47,10 +47,10 @@ public class PlayerController : MonoBehaviour, IManagable
         anim = GetComponent<Animator>();
         inputManager = new InputManager();
         torch = GameObject.FindGameObjectWithTag("Torch").GetComponent<Torch>();
-        Transform handTransform = transform.Find("Hand");
+        handTransform = transform.Find("Hand");
         handPos = handTransform.localPosition;
-        handOffset = new Vector2(0.5f, 0.5f);
-        GameObject.Destroy(handTransform.gameObject);
+        handOffset = new Vector2(-0.2f, 0.7f);
+        //GameObject.Destroy(handTransform.gameObject);
     }
 
     public void PhysicsRefresh(float fdt)
@@ -72,6 +72,7 @@ public class PlayerController : MonoBehaviour, IManagable
         torch.Refresh();
         if (this.isAlive)
         {
+            VelocityCheck();
             inputInfo = inputManager.GetInfo();
 
             if (canMove)
@@ -162,7 +163,7 @@ public class PlayerController : MonoBehaviour, IManagable
 
     private void PickupObject(GameObject go)
     {
-        carried = Carried.PickUpObject(go, this.transform, handPos+handOffset);
+        carried = Carried.PickUpObject(go, handTransform, handPos+handOffset);
     }
 
     private void ManageJump(float dt)
@@ -229,7 +230,7 @@ public class PlayerController : MonoBehaviour, IManagable
     private bool Grounded()
 
     {
-        return Physics2D.OverlapCircle(feet.transform.position, 0.2f, LayerMask.GetMask("Ground"));
+        return Physics2D.OverlapCircle(feet.transform.position, 0.4f, LayerMask.GetMask("Ground","TorchPassGround"));
     }
 
     private void PlayerAnimationStates()
@@ -239,4 +240,22 @@ public class PlayerController : MonoBehaviour, IManagable
             anim.SetFloat("Speed", Mathf.Abs(rb.velocity.magnitude));
     }
 
+    void VelocityCheck()
+    {
+        if (rb.velocity.x != 0)
+        {
+            if(Mathf.Abs(rb.velocity.x) > 4.2f)// || Mathf.Abs(rb.velocity.y) > 0.1f)
+            {
+                rb.velocity = new Vector2(4.2f, rb.velocity.y);
+            }
+        }
+        if (jump)
+        {
+            if(rb.velocity.y > 4.2f)
+            {
+                rb.velocity = new Vector2(rb.velocity.x / 2f, 4.2f);
+
+            }
+        }
+    }
 }
