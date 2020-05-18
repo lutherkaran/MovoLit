@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 112000000, guid: d1144f2d62a921c4b9b38147a454ec81,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2935,6 +2935,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: StartPoint
       objectReference: {fileID: 0}
+    - target: {fileID: 4646086995103257847, guid: d30f9dabef56a7d4cb8ea2cd0ec03e89,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d30f9dabef56a7d4cb8ea2cd0ec03e89, type: 3}
 --- !u!1 &765228622
@@ -3503,6 +3508,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FinishPoint
       objectReference: {fileID: 0}
+    - target: {fileID: 4646086995103257847, guid: dc4e0066a1f41504f90079f9dbffd4b0,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc4e0066a1f41504f90079f9dbffd4b0, type: 3}
 --- !u!1 &1068000432
@@ -4639,6 +4649,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TorchBall
       objectReference: {fileID: 0}
+    - target: {fileID: 5986061823449528912, guid: 6064f8eb71041b54b8e53fa1ee259b04,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6064f8eb71041b54b8e53fa1ee259b04, type: 3}
 --- !u!1 &1559273356
