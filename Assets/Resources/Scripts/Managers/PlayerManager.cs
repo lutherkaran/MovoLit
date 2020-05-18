@@ -48,7 +48,7 @@ public class PlayerManager : IManagable
             {
                 playerPrefab[i] = GameObject.Instantiate(Resources.Load<GameObject>("Prefabs/Player"), startPoints[i].transform.position, Quaternion.identity);
                 playerPrefab[i].name = "Player " + (i + 1);
-                playerPrefab[i].transform.SetParent(playerParent.transform);
+                playerPrefab[i].transform.SetParent(playerParent.transform);    
                 playersList.Add(playerPrefab[i].GetComponent<PlayerController>());
             }
             Player = playerPrefab[0].GetComponent<PlayerController>();

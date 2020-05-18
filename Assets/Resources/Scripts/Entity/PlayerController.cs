@@ -59,8 +59,11 @@ public class PlayerController : MonoBehaviour, IManagable
         if (isAlive)
         {
             VelocityCheck();
-            PlayerJump(inputInfo.jumpPressed);
-            PlayerMove(inputInfo.inputDir);
+            if (canMove)
+            {
+                PlayerJump(inputInfo.jumpPressed);
+                PlayerMove(inputInfo.inputDir);
+            }
         }
     }
 
