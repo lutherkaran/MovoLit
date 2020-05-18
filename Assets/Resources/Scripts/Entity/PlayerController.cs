@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour, IManagable
 
     public void PlayerSpawned()
     {
+        LevelManager.instance.SaveLevel();
         if (!isInitialize)
             Initialize();
         playerHp = PlayerHpMax;
@@ -256,4 +257,6 @@ public class PlayerController : MonoBehaviour, IManagable
             }
         }
     }
+  
 }
+
