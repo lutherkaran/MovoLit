@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour, IManagable
         torch = GameObject.FindGameObjectWithTag("Torch").GetComponent<Torch>();
         handTransform = transform.Find("Hand");
         handPos = handTransform.localPosition;
-        handOffset = new Vector2(-0.2f, 0.7f);
+        //handOffset = new Vector2(.4f, .4f);
         //GameObject.Destroy(handTransform.gameObject);
     }
 
@@ -166,7 +166,7 @@ public class PlayerController : MonoBehaviour, IManagable
 
     private void PickupObject(GameObject go)
     {
-        carried = Carried.PickUpObject(go, handTransform, handPos+handOffset);
+        carried = Carried.PickUpObject(go, handTransform);
     }
 
     private void ManageJump(float dt)

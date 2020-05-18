@@ -44,12 +44,13 @@ public class Carried : MonoBehaviour
         }
         Destroy(this);
     }
-    public static Carried PickUpObject(GameObject toCarry, Transform toFollow, Vector2 offset)
+    public static Carried PickUpObject(GameObject toCarry, Transform toFollow)
     {
         Carried carried = toCarry.AddComponent<Carried>();
         carried.PickedUp();
         carried.transform.SetParent(toFollow);
-        carried.transform.localPosition = offset;
+        carried.transform.localPosition = new Vector2(.4f, .4f);
+        carried.transform.localRotation = Quaternion.Euler(0, 0, 0);
         return carried;
     }
 }
