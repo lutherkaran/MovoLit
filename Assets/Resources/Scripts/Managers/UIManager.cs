@@ -43,9 +43,15 @@ public class UIManager : MonoBehaviour
 
     public void NewGameButton() {
         LevelManager.instance.LoadNextScene(LevelManager.instance.firstSceneIndex+1);
+       
+   
     }
     
-    public void LoadGameButton() { // Load Last Scene
+    public void LoadGameButton() {
+        LevelManager.instance.LoadLevel();
+       
+
+        
     }
 
     public void ResumeGameButton() {

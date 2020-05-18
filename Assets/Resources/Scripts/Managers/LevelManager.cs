@@ -63,4 +63,24 @@ public class LevelManager :IManagable
     {
         SceneManager.LoadScene(sceneIndex);
     }
+    public void SaveLevel()
+    {
+        SaveSystem.Save(currentSceneIndex);
+    }
+    public void LoadLevel()
+    {
+        LevelData data = SaveSystem.Load();
+        currentSceneIndex = data.sceneIndex;
+        SceneManager.LoadScene(currentSceneIndex);
+    }
+}
+
+[System.Serializable]
+public class LevelData
+{
+   public int sceneIndex;
+    public LevelData(int _sceneIndex)
+    {
+        this.sceneIndex = _sceneIndex;
+    }
 }
