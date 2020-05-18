@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour, IManagable
 
     public void PlayerSpawned()
     {
-        LevelManager.instance.SaveLevel();
+        //LevelManager.instance.SaveLevel();
         if (!isInitialize)
             Initialize();
         playerHp = PlayerHpMax;
@@ -58,6 +58,7 @@ public class PlayerController : MonoBehaviour, IManagable
     {
         if (isAlive)
         {
+            inputInfo = inputManager.GetInfo();
             VelocityCheck();
             if (canMove)
             {
@@ -101,7 +102,7 @@ public class PlayerController : MonoBehaviour, IManagable
             }
             else
             {
-                Debug.Log("Animator working");
+                //Debug.Log("Animator working");
                 jump = false;
                 rb.velocity = new Vector2(0, rb.velocity.y);
             }
