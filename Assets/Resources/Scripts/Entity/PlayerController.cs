@@ -34,8 +34,9 @@ public class PlayerController : MonoBehaviour, IManagable
 
     public void PlayerSpawned()
     {
-        //LevelManager.instance.SaveLevel();
-        Initialize();
+        LevelManager.instance.SaveLevel();
+        if(!isInitialize)
+            Initialize();
         playerHp = PlayerHpMax;
     }
 
@@ -70,7 +71,6 @@ public class PlayerController : MonoBehaviour, IManagable
     public void PostInitialize()
     {
         isAlive = true;
-        isInitialize = true;
         jumpThresholdTime = false;
         torch.Initialize();
     }
@@ -213,7 +213,7 @@ public class PlayerController : MonoBehaviour, IManagable
                 Vector2 velocity = rb.velocity;
                 //rb.velocity = Vector2.zero;
                 rb.AddForce(new Vector2(velocity.x, jumpForce) * Time.fixedDeltaTime, ForceMode2D.Impulse);
-                SoundManager.instance.PlaySFX("Jump", this.gameObject);
+               // SoundManager.instance.PlaySFX("Jump", this.gameObject);
 
             }
         }

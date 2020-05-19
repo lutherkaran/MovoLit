@@ -12,15 +12,15 @@ public class UIManager : MonoBehaviour
     PlayerController[] players;
  
     public Button restart, quit;
-    private void Awake()
+    private void Start()
     {
         players = FindObjectsOfType<PlayerController>();
        
         audioSources = GameObject.FindObjectsOfType<AudioSource>();
 
     }
-    void Start()
-    {
+   // void Start()
+    
      
 /*        Debug.Log(player.transform);*/
         /*if (!player)
@@ -31,12 +31,14 @@ public class UIManager : MonoBehaviour
         {
             //Debug.Log(audioSources[i].name);
         }*/
-    }
+    
     void Update()
     {
-        /*for (int i = 0; i <= players.Length; i++)
+        
+        for (int i = 0; i <= players.Length; i++)
         {
-            if (!players[i].isAlive)
+            Debug.Log (players[i].transform.position) ;
+            /*if (!players[i].isAlive)
             {
                 Debug.Log("1");
                 restart.enabled = true;
@@ -47,8 +49,8 @@ public class UIManager : MonoBehaviour
                 Debug.Log("2");
                 restart.enabled = false;
                 quit.enabled = false;
-            }
-        }*/
+              }*/
+        }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (isPaused)

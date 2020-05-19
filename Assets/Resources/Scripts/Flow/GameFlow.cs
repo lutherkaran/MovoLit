@@ -13,41 +13,38 @@ public class GameFlow : IManagable
     public void Initialize()
     {
         LevelManager.instance.Initialize();
-        FinishPointManager.instance.Initialize();
         PlayerManager.instance.Initialize();
-        EnemyManager.instance.Initialize();
+        FinishPointManager.instance.Initialize();
         SoundManager.instance.Initialize();
-        LevelManager.instance.Initialize();
         TimeDelegate.instance.Initialize();
+        EnemyManager.instance.Initialize();
     }
     public void PostInitialize()
     {
         LevelManager.instance.PostInitialize();
-        FinishPointManager.instance.PostInitialize();
         PlayerManager.instance.PostInitialize();
-        EnemyManager.instance.PostInitialize();
+        FinishPointManager.instance.PostInitialize();
         SoundManager.instance.PostInitialize();
-        LevelManager.instance.PostInitialize();
+        EnemyManager.instance.PostInitialize();
         TimeDelegate.instance.PostInitialize();
     }
     public void Refresh(float dt)
     {
         LevelManager.instance.Refresh(dt);
-        FinishPointManager.instance.Refresh(dt);
         PlayerManager.instance.Refresh(dt);
-        EnemyManager.instance.Refresh(dt);
+        FinishPointManager.instance.Refresh(dt);
         SoundManager.instance.Refresh(dt);
-        LevelManager.instance.Refresh(dt);
         TimeDelegate.instance.Refresh(dt);
+        EnemyManager.instance.Refresh(dt);
     }
+
     public void PhysicsRefresh(float fdt)
     {
         LevelManager.instance.PhysicsRefresh(fdt);
-        FinishPointManager.instance.PhysicsRefresh(fdt);
         PlayerManager.instance.PhysicsRefresh(fdt);
-        EnemyManager.instance.PhysicsRefresh(fdt);
+        FinishPointManager.instance.PhysicsRefresh(fdt);
         SoundManager.instance.PhysicsRefresh(fdt);
-        LevelManager.instance.PhysicsRefresh(fdt);
         TimeDelegate.instance.PhysicsRefresh(fdt);
+        EnemyManager.instance.PhysicsRefresh(fdt);
     }
 }

@@ -20,23 +20,29 @@ public class PlayerManager : IManagable
     GameObject[] startPoints;
     /*public Dictionary<PlayerController, bool> playersDict;*/
 
-    private void FirstInitialize()
-    {
-        startPoints = new GameObject[LevelManager.instance.totalStartPoints];
-        startPoints = LevelManager.instance.startPoints;
-        playerPrefab = new GameObject[startPoints.Length];
-        playersList = new List<PlayerController>();
-        playerParent = new GameObject("PlayerParent");
-    }
     public void Initialize()
     {
-        FirstInitialize();
-        SpawnPlayer();
+        startPoints = GameObject.FindGameObjectsWithTag("StartingPoint");// new GameObject[2];//[LevelManager.instance.totalStartPoints];
+                                        // startPoints = LevelManager.instance.startPoints;
+        playerPrefab = new GameObject[startPoints.Length];//[startPoints.Length];
+        playersList = new List<PlayerController>();
+        playerParent = new GameObject("PlayerParent");
 
+        SpawnPlayer();
         foreach (PlayerController p in playersList)
         {
             p.PlayerSpawned();
         }
+    }
+    public void PostInitialize()
+    {
+
+        foreach (PlayerController p in playersList)
+        {
+            p.PostInitialize();
+        }
+
+
     }
 
     private void SpawnPlayer()
@@ -78,15 +84,6 @@ public class PlayerManager : IManagable
         {
             if (p)
                 p.PhysicsRefresh(fdt);
-        }
-    }
-
-    public void PostInitialize()
-    {
-        foreach (PlayerController p in playersList)
-        {
-            if (p)
-                p.PostInitialize();
         }
     }
 
