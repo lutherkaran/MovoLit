@@ -22,9 +22,9 @@ public class PlayerManager : IManagable
 
     public void Initialize()
     {
-        startPoints = GameObject.FindGameObjectsWithTag("StartingPoint");// new GameObject[2];//[LevelManager.instance.totalStartPoints];
-                                        // startPoints = LevelManager.instance.startPoints;
-        playerPrefab = new GameObject[startPoints.Length];//[startPoints.Length];
+       // startPoints = new GameObject[LevelManager.instance.totalStartPoints];
+        startPoints = LevelManager.instance.startPoints;
+        playerPrefab = new GameObject[startPoints.Length];
         playersList = new List<PlayerController>();
         playerParent = new GameObject("PlayerParent");
 
