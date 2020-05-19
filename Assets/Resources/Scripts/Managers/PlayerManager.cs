@@ -116,7 +116,12 @@ public class PlayerManager : IManagable
 
         /* Debug.Log(Player.transform);*/
     }
-
+    public void PlayerDied(PlayerController player)
+    {
+        player.gameObject.SetActive(false);
+        player.isAlive = false;
+        playersList.Remove(player);
+    }
     /*private void CanMoveInput()
     {
 

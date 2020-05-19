@@ -23,7 +23,7 @@ public class UIManager : MonoBehaviour
         }
         for (int i = 0; i < audioSources.Length; i++)
         {
-            Debug.Log(audioSources[i].name);
+            //Debug.Log(audioSources[i].name);
         }
     }
     void Update()

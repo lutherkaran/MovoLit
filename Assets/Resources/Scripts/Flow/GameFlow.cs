@@ -17,6 +17,7 @@ public class GameFlow : IManagable
         PlayerManager.instance.Initialize();
         EnemyManager.instance.Initialize();
         SoundManager.instance.Initialize();
+        LevelManager.instance.Initialize();
     }
     public void PostInitialize()
     {
@@ -25,6 +26,7 @@ public class GameFlow : IManagable
         PlayerManager.instance.PostInitialize();
         EnemyManager.instance.PostInitialize();
         SoundManager.instance.PostInitialize();
+        LevelManager.instance.PostInitialize();
     }
     public void Refresh(float dt)
     {
@@ -33,6 +35,7 @@ public class GameFlow : IManagable
         PlayerManager.instance.Refresh(dt);
         EnemyManager.instance.Refresh(dt);
         SoundManager.instance.Refresh(dt);
+        LevelManager.instance.Refresh(dt);
     }
     public void PhysicsRefresh(float fdt)
     {
@@ -41,5 +44,6 @@ public class GameFlow : IManagable
         PlayerManager.instance.PhysicsRefresh(fdt);
         EnemyManager.instance.PhysicsRefresh(fdt);
         SoundManager.instance.PhysicsRefresh(fdt);
+        LevelManager.instance.Refresh(fdt);
     }
 }

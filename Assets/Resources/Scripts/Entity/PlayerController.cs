@@ -151,7 +151,7 @@ public class PlayerController : MonoBehaviour, IManagable
         Collider2D colli = Physics2D.OverlapCircle(transform.position, radius, LayerMask.GetMask("Torch"));
         if (colli)
         {
-            Debug.Log(colli.name);
+/*            Debug.Log(colli.name);*/
         }
         return colli;
 

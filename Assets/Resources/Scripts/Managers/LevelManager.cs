@@ -11,6 +11,7 @@ public class LevelManager :IManagable
     #endregion
 
     public GameObject[] startPoints;
+    public GameObject[] spawnners;
     public int totalStartPoints;
     static public int currentSceneIndex;
     public int firstSceneIndex = 0;
@@ -32,8 +33,10 @@ public class LevelManager :IManagable
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         /*Debug.Log(currentSceneIndex);*/
         startPoints = GameObject.FindGameObjectsWithTag("StartingPoint");
+     
         totalStartPoints = startPoints.Length;
         enemySpawnners = new List<EnemySpawnner>();
+        enemySpawnners.AddRange(GameObject.FindObjectsOfType<EnemySpawnner>());
     }
 
     public void PhysicsRefresh(float fdt)
