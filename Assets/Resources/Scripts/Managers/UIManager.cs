@@ -1,33 +1,54 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
     bool isPaused;
     AudioSource[] audioSources;
     public GameObject pauseMenuUI;
-    GameObject player;
+ //   GameObject player;
+    PlayerController[] players;
+ 
+    public Button restart, quit;
     private void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        players = FindObjectsOfType<PlayerController>();
+       
         audioSources = GameObject.FindObjectsOfType<AudioSource>();
+
     }
     void Start()
     {
+     
 /*        Debug.Log(player.transform);*/
-        if (!player)
+        /*if (!player)
         {
 
         }
         for (int i = 0; i < audioSources.Length; i++)
         {
             //Debug.Log(audioSources[i].name);
-        }
+        }*/
     }
     void Update()
     {
+        /*for (int i = 0; i <= players.Length; i++)
+        {
+            if (!players[i].isAlive)
+            {
+                Debug.Log("1");
+                restart.enabled = true;
+                quit.enabled = true;
+            }
+            else
+            {
+                Debug.Log("2");
+                restart.enabled = false;
+                quit.enabled = false;
+            }
+        }*/
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (isPaused)
@@ -40,6 +61,9 @@ public class UIManager : MonoBehaviour
             }
         }
     }
+       
+       
+    
 
     public void NewGameButton() {
         LevelManager.instance.LoadNextScene(LevelManager.instance.firstSceneIndex+1);
@@ -78,6 +102,7 @@ public class UIManager : MonoBehaviour
     }
 
     public void SoundButton() {
+
         if (SoundManager.instance.isPlaying)
         {
           

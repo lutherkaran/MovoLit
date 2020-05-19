@@ -120,10 +120,14 @@ public class PlayerManager : IManagable
     {
         foreach (PlayerController player in players)
         {
-            player.gameObject.SetActive(false);
+            SoundManager.instance.PlaySFX("Death", player.gameObject);
+
+           TimeDelegate.instance.Action(()=> player.gameObject.SetActive(false),1f);
+            player.canMove = false;
             player.isAlive = false;
             playersList.Remove(player);
         }
+
        
     }
     /*private void CanMoveInput()

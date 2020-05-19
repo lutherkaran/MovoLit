@@ -25,8 +25,10 @@ public class EnemySpawnner : MonoBehaviour
 
         if (other.gameObject.CompareTag("Player"))
         {
-            if(!enemy)
-            EnemyManager.instance.SpawnEnemy(EnemyType.Ghosts, /*new Vector2(Random.Range(-pos.x,pos.x), Random.Range(-pos.y, pos.y))+*/offset);
+            if (!enemy)
+            {
+               TimeDelegate.instance.Action(()=>EnemyManager.instance.SpawnEnemy(EnemyType.Ghosts, /*new Vector2(Random.Range(-pos.x,pos.x), Random.Range(-pos.y, pos.y))+*/offset),5);
+            }
         }
     }
 }

@@ -13,7 +13,7 @@ public class LevelManager :IManagable
     public GameObject[] startPoints;
     public GameObject[] spawnners;
     public int totalStartPoints;
-    static public int currentSceneIndex;
+    public static int currentSceneIndex;
     public int firstSceneIndex = 0;
     public List<EnemySpawnner> enemySpawnners;
 

@@ -76,27 +76,28 @@ public abstract class EnemyUnit : MonoBehaviour ,IManagable
             {
                 int index = i;
                 targetFound = true;
-                direction = players[index].transform.position - this.transform.position;
-                UnityEngine.Debug.Log("1");
+                target = players[index].transform.position;
+                direction =  target - this.transform.position;
+/*                UnityEngine.Debug.Log("1");*/
             }
          
              if (!(players[0].GetComponentInChildren<Torch>()) && !(players[1].GetComponentInChildren<Torch>())) {
-                UnityEngine.Debug.Log("2");
+               /* UnityEngine.Debug.Log("2");*/
 
                 
                 float distance = Vector2.Distance(this.transform.position, players[0].transform.position);
-                UnityEngine.Debug.Log("Distance:"+distance);
+               /* UnityEngine.Debug.Log("Distance:"+distance);*/
                 float distance2 = Vector2.Distance(this.transform.position, players[1].transform.position);
-                UnityEngine.Debug.Log("Distance2:" + distance2);
+             /*   UnityEngine.Debug.Log("Distance2:" + distance2);*/
                 if (distance < distance2)
                 {
-              
-                    direction = players[0].transform.position - this.transform.position;
+                    target = players[0].transform.position;
+                    direction = target - this.transform.position;
                 }
                 else
                 {
-                  
-                    direction = players[1].transform.position - this.transform.position;
+                    target = players[1].transform.position;
+                    direction = target - this.transform.position;
                 }
             }
 

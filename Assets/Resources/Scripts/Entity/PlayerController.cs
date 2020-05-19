@@ -213,6 +213,7 @@ public class PlayerController : MonoBehaviour, IManagable
                 Vector2 velocity = rb.velocity;
                 //rb.velocity = Vector2.zero;
                 rb.AddForce(new Vector2(velocity.x, jumpForce) * Time.fixedDeltaTime, ForceMode2D.Impulse);
+                SoundManager.instance.PlaySFX("Jump", this.gameObject);
 
             }
         }
