@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 112000000, guid: d1144f2d62a921c4b9b38147a454ec81,
     type: 2}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -188,7 +188,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &179231762
 GameObject:
@@ -332,6 +332,7 @@ GameObject:
   - component: {fileID: 222000747}
   - component: {fileID: 222000746}
   - component: {fileID: 222000745}
+  - component: {fileID: 222000748}
   m_Layer: 17
   m_Name: Cave - SmallRocks_32 (1)
   m_TagString: DeadZones
@@ -363,7 +364,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.09606089, y: -0.03994322}
@@ -450,6 +451,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &222000748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 222000743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6001360d5d7690f4e95076f777785e6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &252637204
 GameObject:
   m_ObjectHideFlags: 0
@@ -462,6 +475,7 @@ GameObject:
   - component: {fileID: 252637205}
   - component: {fileID: 252637208}
   - component: {fileID: 252637207}
+  - component: {fileID: 252637209}
   m_Layer: 17
   m_Name: Cave - RockCombinations1_15
   m_TagString: DeadZones
@@ -543,7 +557,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.33820474}
@@ -580,6 +594,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &252637209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 252637204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6001360d5d7690f4e95076f777785e6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &304379492
 GameObject:
   m_ObjectHideFlags: 0
@@ -940,6 +966,7 @@ GameObject:
   - component: {fileID: 325654178}
   - component: {fileID: 325654181}
   - component: {fileID: 325654180}
+  - component: {fileID: 325654182}
   m_Layer: 17
   m_Name: Cave - RockCombinations1_13
   m_TagString: DeadZones
@@ -1021,7 +1048,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.33033955}
@@ -1058,6 +1085,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &325654182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325654177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6001360d5d7690f4e95076f777785e6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &337944015
 GameObject:
   m_ObjectHideFlags: 0
@@ -1070,6 +1109,7 @@ GameObject:
   - component: {fileID: 337944016}
   - component: {fileID: 337944019}
   - component: {fileID: 337944018}
+  - component: {fileID: 337944020}
   m_Layer: 17
   m_Name: Cave - RockCombinations1_13 (2)
   m_TagString: DeadZones
@@ -1151,7 +1191,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.32200503}
@@ -1188,6 +1228,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &337944020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337944015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6001360d5d7690f4e95076f777785e6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &414796235
 GameObject:
   m_ObjectHideFlags: 0
@@ -1720,6 +1772,7 @@ GameObject:
   - component: {fileID: 469982562}
   - component: {fileID: 469982565}
   - component: {fileID: 469982564}
+  - component: {fileID: 469982566}
   m_Layer: 17
   m_Name: Cave - RockCombinations1_13 (3)
   m_TagString: DeadZones
@@ -1801,7 +1854,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.3118888}
@@ -1838,6 +1891,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &469982566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469982561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6001360d5d7690f4e95076f777785e6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &470303168
 GameObject:
   m_ObjectHideFlags: 0
@@ -2839,7 +2904,7 @@ PrefabInstance:
     - target: {fileID: 4646086995103257840, guid: d30f9dabef56a7d4cb8ea2cd0ec03e89,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4646086995103257840, guid: d30f9dabef56a7d4cb8ea2cd0ec03e89,
         type: 3}
@@ -2863,6 +2928,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d30f9dabef56a7d4cb8ea2cd0ec03e89, type: 3}
+--- !u!1 &700260010
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 700260011}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &700260011
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700260010}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 23.5, y: 11.2, z: -14.436747}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &765228622
 GameObject:
   m_ObjectHideFlags: 0
@@ -2904,7 +2999,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &866088067
 GameObject:
@@ -2918,6 +3013,7 @@ GameObject:
   - component: {fileID: 866088068}
   - component: {fileID: 866088071}
   - component: {fileID: 866088070}
+  - component: {fileID: 866088072}
   m_Layer: 17
   m_Name: Cave - RockCombinations1_15 (1)
   m_TagString: DeadZones
@@ -2999,7 +3095,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.33820522}
@@ -3036,6 +3132,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &866088072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866088067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6001360d5d7690f4e95076f777785e6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &908293370
 GameObject:
   m_ObjectHideFlags: 0
@@ -3230,7 +3338,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1063010856
 GameObject:
@@ -3244,6 +3352,7 @@ GameObject:
   - component: {fileID: 1063010857}
   - component: {fileID: 1063010860}
   - component: {fileID: 1063010859}
+  - component: {fileID: 1063010861}
   m_Layer: 17
   m_Name: Cave - RockCombinations1_13 (1)
   m_TagString: DeadZones
@@ -3325,7 +3434,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.3661201}
@@ -3362,6 +3471,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1063010861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063010856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6001360d5d7690f4e95076f777785e6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1063459305
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3407,7 +3528,7 @@ PrefabInstance:
     - target: {fileID: 4646086995103257840, guid: dc4e0066a1f41504f90079f9dbffd4b0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4646086995103257840, guid: dc4e0066a1f41504f90079f9dbffd4b0,
         type: 3}
@@ -3609,6 +3730,7 @@ GameObject:
   - component: {fileID: 1097602991}
   - component: {fileID: 1097602994}
   - component: {fileID: 1097602993}
+  - component: {fileID: 1097602995}
   m_Layer: 17
   m_Name: Cave - SmallRocks_32
   m_TagString: DeadZones
@@ -3690,7 +3812,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.057511404, y: -0.03994322}
@@ -3727,6 +3849,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1097602995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097602990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6001360d5d7690f4e95076f777785e6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1113704721
 GameObject:
   m_ObjectHideFlags: 0
@@ -4118,7 +4252,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1225561890
 PrefabInstance:
@@ -4274,6 +4408,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aae4127b8c747e54d8eebb17c0c78821, type: 3}
+--- !u!1001 &1244519003
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5069478293387250007, guid: 72479b0dd9a27de4f8ad72f17e2b242d,
+        type: 3}
+      propertyPath: m_Name
+      value: EnemySpawnner
+      objectReference: {fileID: 0}
+    - target: {fileID: 5069478293387250090, guid: 72479b0dd9a27de4f8ad72f17e2b242d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5069478293387250090, guid: 72479b0dd9a27de4f8ad72f17e2b242d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5069478293387250090, guid: 72479b0dd9a27de4f8ad72f17e2b242d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5069478293387250090, guid: 72479b0dd9a27de4f8ad72f17e2b242d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5069478293387250090, guid: 72479b0dd9a27de4f8ad72f17e2b242d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5069478293387250090, guid: 72479b0dd9a27de4f8ad72f17e2b242d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5069478293387250090, guid: 72479b0dd9a27de4f8ad72f17e2b242d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5069478293387250090, guid: 72479b0dd9a27de4f8ad72f17e2b242d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5069478293387250090, guid: 72479b0dd9a27de4f8ad72f17e2b242d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5069478293387250090, guid: 72479b0dd9a27de4f8ad72f17e2b242d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5069478293387250090, guid: 72479b0dd9a27de4f8ad72f17e2b242d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 72479b0dd9a27de4f8ad72f17e2b242d, type: 3}
 --- !u!1 &1326005749
 GameObject:
   m_ObjectHideFlags: 0
@@ -4449,6 +4652,7 @@ GameObject:
   - component: {fileID: 1476857793}
   - component: {fileID: 1476857796}
   - component: {fileID: 1476857795}
+  - component: {fileID: 1476857797}
   m_Layer: 17
   m_Name: Cave - RockCombinations1_14 (1)
   m_TagString: DeadZones
@@ -4530,7 +4734,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.02745904, y: -0.24237967}
@@ -4567,6 +4771,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1476857797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476857792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6001360d5d7690f4e95076f777785e6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1481622518
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4612,7 +4828,7 @@ PrefabInstance:
     - target: {fileID: 4646086995103257840, guid: dc4e0066a1f41504f90079f9dbffd4b0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4646086995103257840, guid: dc4e0066a1f41504f90079f9dbffd4b0,
         type: 3}
@@ -4773,7 +4989,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!1 &1650938843
 GameObject:
@@ -4807,7 +5023,7 @@ Transform:
   - {fileID: 1113704722}
   - {fileID: 988727073}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1703892656
 GameObject:
@@ -4821,6 +5037,7 @@ GameObject:
   - component: {fileID: 1703892657}
   - component: {fileID: 1703892660}
   - component: {fileID: 1703892659}
+  - component: {fileID: 1703892661}
   m_Layer: 17
   m_Name: Cave - RockCombinations1_15 (2)
   m_TagString: DeadZones
@@ -4902,7 +5119,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.3460704}
@@ -4939,6 +5156,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1703892661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1703892656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6001360d5d7690f4e95076f777785e6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1763659178
 GameObject:
   m_ObjectHideFlags: 0
@@ -5249,6 +5478,7 @@ GameObject:
   - component: {fileID: 1798000620}
   - component: {fileID: 1798000623}
   - component: {fileID: 1798000622}
+  - component: {fileID: 1798000624}
   m_Layer: 17
   m_Name: Cave - RockCombinations1_14
   m_TagString: DeadZones
@@ -5330,7 +5560,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.014070928, y: -0.38407156}
@@ -5367,6 +5597,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1798000624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1798000619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6001360d5d7690f4e95076f777785e6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1798161166
 GameObject:
   m_ObjectHideFlags: 0
@@ -5528,7 +5770,7 @@ Transform:
   - {fileID: 510702634}
   - {fileID: 1068000433}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1915097547
 GameObject:
@@ -5563,7 +5805,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.15
+  m_Intensity: 0.1
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: 0000000093f95490dd4ca9f7e7abac73094c6bb2
   m_LightCookieSprite: {fileID: 0}
@@ -5598,7 +5840,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2012821943
 GameObject:
@@ -6049,6 +6291,7 @@ GameObject:
   - component: {fileID: 2017680003}
   - component: {fileID: 2017680006}
   - component: {fileID: 2017680005}
+  - component: {fileID: 2017680007}
   m_Layer: 17
   m_Name: Cave - RockCombinations1_13
   m_TagString: DeadZones
@@ -6130,7 +6373,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.3672416}
@@ -6167,6 +6410,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2017680007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2017680002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6001360d5d7690f4e95076f777785e6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2020885081
 GameObject:
   m_ObjectHideFlags: 0

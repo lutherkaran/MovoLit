@@ -17,6 +17,7 @@ public abstract class EnemyUnit : MonoBehaviour ,IManagable
     public float speed;
     public bool targetsWithoutTorch;
     public EnemyType enemyType;
+    public List<PlayerController> players;
 
     public bool targetFound { get; private set; }
 
@@ -26,7 +27,9 @@ public abstract class EnemyUnit : MonoBehaviour ,IManagable
         anim = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
         InitialPosition = transform.position;
-        Player = GameObject.FindGameObjectsWithTag("Player");
+        players = new List<PlayerController>();
+        players.AddRange(FindObjectsOfType<PlayerController>());
+        /*Player = GameObject.FindGameObjectsWithTag("Player");*/
        
 
     }
@@ -36,38 +39,20 @@ public abstract class EnemyUnit : MonoBehaviour ,IManagable
     }
     public virtual void PhysicsRefresh(float fdt)
     {
+
     }
 
     public virtual void Refresh(float dt)
     {
-/*        UnityEngine.Debug.Log("Fuck");*/
-        FindTarget();
+        /*        UnityEngine.Debug.Log("Fuck");*/
+        // FindTarget();
+        FindCloseTarget();
     }
 
-    public void FindTarget()
-    {
-       
-        for (int i = 0; i < Player.Length; i++)
-        {
-            if (!Player[i].GetComponentInChildren<Torch>())
-            {
-                targetFound = true;
-                target = Player[i].transform.position;
-                
-            direction = target - transform.position;
-            }
-            else{
-                Vector3 moveRandom = new Vector3(UnityEngine.Random.Range(-10,10), UnityEngine.Random.Range(-10, 10),0);
-                direction = moveRandom - transform.position;
-            }
-        }
-        
-      
-    }
+  
     public void FollowTarget(float dt)
     {
-      
-        if (targetsWithoutTorch)
+        if (targetFound)
         {
             transform.position += direction.normalized * speed * dt;
         }
@@ -83,21 +68,53 @@ public abstract class EnemyUnit : MonoBehaviour ,IManagable
         }
     }
     public void FindCloseTarget()
-    { 
-        for(int i = 0; i < Player.Length; i++)
+    {
+
+        for (int i = 0; i < players.Count; i++) {
+
+            if (!(players[i].GetComponentInChildren<Torch>()))
+            {
+                int index = i;
+                targetFound = true;
+                direction = players[index].transform.position - this.transform.position;
+                UnityEngine.Debug.Log("1");
+            }
+         
+             if (!(players[0].GetComponentInChildren<Torch>()) && !(players[1].GetComponentInChildren<Torch>())) {
+                UnityEngine.Debug.Log("2");
+
+                
+                float distance = Vector2.Distance(this.transform.position, players[0].transform.position);
+                UnityEngine.Debug.Log("Distance:"+distance);
+                float distance2 = Vector2.Distance(this.transform.position, players[1].transform.position);
+                UnityEngine.Debug.Log("Distance2:" + distance2);
+                if (distance < distance2)
+                {
+              
+                    direction = players[0].transform.position - this.transform.position;
+                }
+                else
+                {
+                  
+                    direction = players[1].transform.position - this.transform.position;
+                }
+            }
+
+        }
+        /*for(int i = 0; i < Player.Length; i++)
         {
             Transform[] playerTransform = new Transform[Player.Length];
             if (!(Player[i].GetComponentInChildren<Torch>()))
             {
-               
+                UnityEngine.Debug.Log(Player[i].transform.position);
                 playerTransform[i] = Player[i].GetComponent<Transform>();
                 targetsWithoutTorch = true;
                 direction = GetClosetTargetsTransfrom(playerTransform);
                 
             }
-        }
+        }*/
     }
-    Vector3 GetClosetTargetsTransfrom(Transform[] players)
+   /* Vector3 GetClosetTargetsTransfrom(Transform[] players)
     {
         Transform minTransform = null;
         float minDist = Mathf.Infinity;
@@ -105,6 +122,7 @@ public abstract class EnemyUnit : MonoBehaviour ,IManagable
         foreach (Transform t in players)
         {
             float dist = Vector3.Distance(t.position, currentPos);
+            
             if (dist < minDist)
             {
                 minTransform = t;
@@ -112,5 +130,5 @@ public abstract class EnemyUnit : MonoBehaviour ,IManagable
             }
         }
         return minTransform.position;
-    }
+    }*/
 }
