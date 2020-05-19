@@ -16,29 +16,30 @@ public class Torch :MonoBehaviour
 
     bool isPickedUp = false;
 
-    public void Initialize()
+    public void Start()
     {
         rb =  GetComponent<Rigidbody2D>();
         cam = Camera.main;
 
-        try
+        //try
         {
+            //if(torchPickText == null)
             torchPickText = GameObject.FindGameObjectWithTag("TorchText").GetComponent<TextMeshProUGUI>();
             torchTextTransform = torchPickText.GetComponent<RectTransform>();
         }
-        catch (System.Exception e)
-        {
-            Debug.LogException(e, this);
-        }
+        //catch (System.Exception e)
+        //{
+        //    Debug.LogException(e, this);
+        //}
     }
 
-    public void Refresh()
+    public void Update()
     {
         isPickedUp = transform.parent ? true : false;
 
         try
         {
-            if (torchPickText.gameObject != null)
+            //if (torchPickText)
             {
                 if (!isPickedUp && Mathf.Abs(rb.velocity.x) < 2f && Mathf.Abs(rb.velocity.y) < 2f)
                 {
@@ -65,8 +66,5 @@ public class Torch :MonoBehaviour
             Debug.LogException(e, this);
         }
     }
-
-
-
-
+    
 }

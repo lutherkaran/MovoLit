@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour, IManagable
     SpriteRenderer sprite;
     Animator anim;
     Carried carried;
+    static bool torchInitialized = false;
 
     public InputManager.InputInfo inputInfo;
     public bool isAlive;
@@ -42,12 +43,12 @@ public class PlayerController : MonoBehaviour, IManagable
 
     public void Initialize()
     {
-
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         inputManager = new InputManager();
-        torch = GameObject.FindGameObjectWithTag("Torch").GetComponent<Torch>();
+        if(!torchInitialized)
+            torch = GameObject.FindGameObjectWithTag("Torch").GetComponent<Torch>();
         handTransform = transform.Find("Hand");
         handPos = handTransform.localPosition;
         //handOffset = new Vector2(.4f, .4f);
@@ -72,13 +73,15 @@ public class PlayerController : MonoBehaviour, IManagable
     {
         isAlive = true;
         jumpThresholdTime = false;
-        torch.Initialize();
+        //if(!torchInitialized)
+        //    torch.Initialize();
+        torchInitialized = true;
     }
 
     public void Refresh(float dt)
     {
         inputManager.InputUpdate(dt);
-        torch.Refresh();
+       // torch.Refresh();
         if (this.isAlive)
         {            
             inputInfo = inputManager.GetInfo();

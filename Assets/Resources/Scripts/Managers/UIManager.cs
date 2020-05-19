@@ -35,7 +35,7 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         
-        for (int i = 0; i <= players.Length; i++)
+        for (int i = 0; i < players.Length; i++)
         {
             Debug.Log (players[i].transform.position) ;
             /*if (!players[i].isAlive)

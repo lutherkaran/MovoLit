@@ -36,13 +36,15 @@ public class PlayerManager : IManagable
     }
     public void PostInitialize()
     {
-
-        foreach (PlayerController p in playersList)
+        
+        //foreach (PlayerController p in playersList)
+        //{
+        //    p.PostInitialize();
+        //}
+        for (int i = 0; i < playersList.Count; i++)
         {
-            p.PostInitialize();
+            playersList[i].PostInitialize();
         }
-
-
     }
 
     private void SpawnPlayer()
@@ -85,6 +87,7 @@ public class PlayerManager : IManagable
             if (p)
                 p.PhysicsRefresh(fdt);
         }
+
     }
 
     public void Refresh(float dt)
