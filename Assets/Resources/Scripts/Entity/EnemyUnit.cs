@@ -103,6 +103,10 @@ public abstract class EnemyUnit : MonoBehaviour ,IManagable
                     }
                 }
             }
+            else
+            {
+                Destroy(this, 1);
+            }
 
         }
        

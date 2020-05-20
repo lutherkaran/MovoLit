@@ -38,8 +38,8 @@ public class Ghost : EnemyUnit
    
         if (other.gameObject.CompareTag("Player"))
         {
-        
-            PlayerManager.instance.PlayerDied();
+            PlayerController[] players = FindObjectsOfType<PlayerController>();
+            PlayerManager.instance.PlayerDied(players);
         
         }        
         

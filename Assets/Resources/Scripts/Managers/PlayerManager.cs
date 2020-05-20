@@ -22,7 +22,7 @@ public class PlayerManager : IManagable
 
     public void Initialize()
     {
-        // startPoints = new GameObject[LevelManager.instance.totalStartPoints];
+       // startPoints = new GameObject[LevelManager.instance.totalStartPoints];
         startPoints = LevelManager.instance.startPoints;
         playerPrefab = new GameObject[startPoints.Length];
         playersList = new List<PlayerController>();
@@ -36,7 +36,7 @@ public class PlayerManager : IManagable
     }
     public void PostInitialize()
     {
-
+        
         //foreach (PlayerController p in playersList)
         //{
         //    p.PostInitialize();
@@ -56,7 +56,7 @@ public class PlayerManager : IManagable
             {
                 playerPrefab[i] = GameObject.Instantiate(Resources.Load<GameObject>("Prefabs/Player"), startPoints[i].transform.position, Quaternion.identity);
                 playerPrefab[i].name = "Player " + (i + 1);
-                playerPrefab[i].transform.SetParent(playerParent.transform);
+                playerPrefab[i].transform.SetParent(playerParent.transform);    
                 playersList.Add(playerPrefab[i].GetComponent<PlayerController>());
             }
             Player = playerPrefab[0].GetComponent<PlayerController>();
@@ -92,13 +92,13 @@ public class PlayerManager : IManagable
 
     public void Refresh(float dt)
     {
-        // CanMoveInput();
+       // CanMoveInput();
         foreach (PlayerController p in playersList)
         {
             //if (p == Player)
-            //  {
+          //  {
             //    p.canMove = true;
-            p.Refresh(dt);
+                p.Refresh(dt);
 
             if (playersList.Count > 1)
             {
@@ -116,24 +116,19 @@ public class PlayerManager : IManagable
 
         /* Debug.Log(Player.transform);*/
     }
-    public void PlayerDied()
+    public void PlayerDied(PlayerController[] players)
     {
-        Debug.Log("PlayerDied");
-
-        
-        /*for (int i = 0; i < playersList.Count; i++)
+        foreach (PlayerController player in players)
         {
-            SoundManager.instance.PlaySFX("Death", playersList[i].gameObject, 0.2f);
-            playersList[i].canMove = false;
-            playersList[i].isAlive = false;
-            GameObject.Destroy(playersList[i], 1f);
-            *//*playersList.Remove(playersList[i]);*//*
-            playersList.Clear();
-        }*/
+            SoundManager.instance.PlaySFX("Death", player.gameObject,0.2f);
 
+            player.canMove = false;
+            player.isAlive = false;
+            TimeDelegate.instance.Action(() => GameObject.Destroy(player.gameObject),0.5f);
+            playersList.Remove(player);
+        }
 
-
-
+       
     }
     /*private void CanMoveInput()
     {
