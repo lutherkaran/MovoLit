@@ -69,39 +69,47 @@ public abstract class EnemyUnit : MonoBehaviour ,IManagable
     }
     public void FindCloseTarget()
     {
-
+        
         for (int i = 0; i < players.Count; i++) {
-
-            if (!(players[i].GetComponentInChildren<Torch>()))
+            if (players[i])
             {
-                int index = i;
-                targetFound = true;
-                target = players[index].transform.position;
-                direction =  target - this.transform.position;
-/*                UnityEngine.Debug.Log("1");*/
-            }
-         
-             if (!(players[0].GetComponentInChildren<Torch>()) && !(players[1].GetComponentInChildren<Torch>())) {
-               /* UnityEngine.Debug.Log("2");*/
-
-                
-                float distance = Vector2.Distance(this.transform.position, players[0].transform.position);
-               /* UnityEngine.Debug.Log("Distance:"+distance);*/
-                float distance2 = Vector2.Distance(this.transform.position, players[1].transform.position);
-             /*   UnityEngine.Debug.Log("Distance2:" + distance2);*/
-                if (distance < distance2)
+                if (!(players[i].GetComponentInChildren<Torch>()))
                 {
-                    target = players[0].transform.position;
+                    int index = i;
+                    targetFound = true;
+                    target = players[index].transform.position;
                     direction = target - this.transform.position;
+                    /*                UnityEngine.Debug.Log("1");*/
+                }
+
+                else if (!(players[0].GetComponentInChildren<Torch>()) && !(players[1].GetComponentInChildren<Torch>()))
+                {
+                    /* UnityEngine.Debug.Log("2");*/
+
+
+                    float distance = Vector2.Distance(this.transform.position, players[0].transform.position);
+                    /* UnityEngine.Debug.Log("Distance:"+distance);*/
+                    float distance2 = Vector2.Distance(this.transform.position, players[1].transform.position);
+                    /*   UnityEngine.Debug.Log("Distance2:" + distance2);*/
+                    if (distance < distance2)
+                    {
+                        target = players[0].transform.position;
+                        direction = target - this.transform.position;
+                    }
+                    else
+                    {
+                        target = players[1].transform.position;
+                        direction = target - this.transform.position;
+                    }
                 }
                 else
                 {
-                    target = players[1].transform.position;
-                    direction = target - this.transform.position;
+                    break;
                 }
             }
 
         }
+       
         /*for(int i = 0; i < Player.Length; i++)
         {
             Transform[] playerTransform = new Transform[Player.Length];
@@ -115,21 +123,22 @@ public abstract class EnemyUnit : MonoBehaviour ,IManagable
             }
         }*/
     }
-   /* Vector3 GetClosetTargetsTransfrom(Transform[] players)
-    {
-        Transform minTransform = null;
-        float minDist = Mathf.Infinity;
-        Vector3 currentPos = transform.position;
-        foreach (Transform t in players)
-        {
-            float dist = Vector3.Distance(t.position, currentPos);
-            
-            if (dist < minDist)
-            {
-                minTransform = t;
-                minDist = dist;
-            }
-        }
-        return minTransform.position;
-    }*/
+   
+    /* Vector3 GetClosetTargetsTransfrom(Transform[] players)
+     {
+         Transform minTransform = null;
+         float minDist = Mathf.Infinity;
+         Vector3 currentPos = transform.position;
+         foreach (Transform t in players)
+         {
+             float dist = Vector3.Distance(t.position, currentPos);
+
+             if (dist < minDist)
+             {
+                 minTransform = t;
+                 minDist = dist;
+             }
+         }
+         return minTransform.position;
+     }*/
 }

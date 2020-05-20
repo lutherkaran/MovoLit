@@ -14,6 +14,7 @@ public class Ghost : EnemyUnit
     public override void PostInitialize()
     {
         base.PostInitialize();
+
     }
     public override void Refresh(float dt)
     {
@@ -32,4 +33,16 @@ public class Ghost : EnemyUnit
     {
         base.PhysicsRefresh(fdt);
     }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+   
+        if (other.gameObject.CompareTag("Player"))
+        {
+        
+            PlayerManager.instance.PlayerDied();
+        
+        }        
+        
+    }
+    
 }
