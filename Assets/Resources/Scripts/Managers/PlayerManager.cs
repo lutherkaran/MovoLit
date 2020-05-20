@@ -11,7 +11,7 @@ public class PlayerManager : IManagable
     public static PlayerManager instance { get { return Instance ?? (Instance = new PlayerManager()); } }
     #endregion
 
-
+    public static bool playersAreDead = false;
     GameObject[] playerPrefab;
     GameObject playerParent;
     public List<PlayerController> playersList;
@@ -36,11 +36,7 @@ public class PlayerManager : IManagable
     }
     public void PostInitialize()
     {
-        
-        //foreach (PlayerController p in playersList)
-        //{
-        //    p.PostInitialize();
-        //}
+        playersAreDead = false;
         for (int i = 0; i < playersList.Count; i++)
         {
             playersList[i].PostInitialize();
@@ -121,10 +117,11 @@ public class PlayerManager : IManagable
         foreach (PlayerController player in players)
         {
             SoundManager.instance.PlaySFX("Death", player.gameObject,0.2f);
-
+            playersAreDead = true;
             player.canMove = false;
             player.isAlive = false;
-            TimeDelegate.instance.Action(() => GameObject.Destroy(player.gameObject),0.5f);
+            GameObject.Destroy(player.gameObject, 0.5f);
+           // TimeDelegate.instance.Action(() => GameObject.Destroy(player.gameObject),0.5f);
             playersList.Remove(player);
         }
 

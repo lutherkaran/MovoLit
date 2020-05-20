@@ -12,15 +12,17 @@ public class UIManager : MonoBehaviour
  //   GameObject player;
     PlayerController player;
     bool isAlive = true;
- 
-    public Button retry, quit;
+
+    // public Button retry, quit;
+    GameObject restartMenu;
     private void Start()
     {
         player = FindObjectOfType<PlayerController>();
-       
+        restartMenu = GameObject.FindGameObjectWithTag("RestartMenu");
         audioSources = GameObject.FindObjectsOfType<AudioSource>();
-       /* retry = GameObject.Find("RetryButton").GetComponent<Button>();
-        quit = GameObject.Find("QuitButton2").GetComponent<Button>();*/
+        /* retry = GameObject.Find("RetryButton").GetComponent<Button>();
+         quit = GameObject.Find("QuitButton2").GetComponent<Button>();*/
+        RetryMenu(false);
 
     }
    // void Start()
@@ -38,14 +40,22 @@ public class UIManager : MonoBehaviour
     
     void Update()
     {
-        
-       /*
-            if (!player.isAlive)
-            {
-                isAlive = false;
-                Retry();
 
-            }*/
+        /*
+             if (!player.isAlive)
+             {
+                 isAlive = false;
+                 Retry();
+
+             }*/
+
+        if (PlayerManager.playersAreDead)
+        {
+            Debug.Log(PlayerManager.playersAreDead);
+            RetryMenu(true);
+        }
+        else
+            RetryMenu(false);
     
         
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -61,18 +71,20 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    private void Retry()
+    private void RetryMenu(bool b)
     {
-        if(isAlive == false)
-        {
-             retry.enabled = true;
-             retry.interactable = true;
-        }
-        else
-        {
-            retry.enabled = false;
-            retry.interactable = false;
-        }
+        //if(!restartMenu.activeSelf)
+            restartMenu.SetActive(b);
+        //if(isAlive == false)
+        //{
+        //     retry.enabled = true;
+        //     retry.interactable = true;
+        //}
+        //else
+        //{
+        //    retry.enabled = false;
+        //    retry.interactable = false;
+        //}
     }
 
     public void NewGameButton() {
