@@ -2,23 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class Torch :MonoBehaviour
 {
     public Rigidbody2D rb;
     public float force;
+    Collider2D otherCollider;
 
     TextMeshProUGUI torchPickText;
     RectTransform torchTextTransform;
+    PlatformEffector2D[] effectors;
     Vector3 textOffset = new Vector3(0, 1, 0);
-
+    float counter = .5f;
     private Camera cam; 
 
     bool isPickedUp = false;
+    Collider2D[] colliders;
 
     public void Start()
     {
-        rb =  GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
         cam = Camera.main;
 
         //try
@@ -26,15 +30,47 @@ public class Torch :MonoBehaviour
             //if(torchPickText == null)
             torchPickText = GameObject.FindGameObjectWithTag("TorchText").GetComponent<TextMeshProUGUI>();
             torchTextTransform = torchPickText.GetComponent<RectTransform>();
+            colliders = GetComponents<PolygonCollider2D>();
+            effectors = FindObjectsOfType<PlatformEffector2D>();
         }
         //catch (System.Exception e)
         //{
         //    Debug.LogException(e, this);
         //}
     }
+   
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("TorchPass"))
+        {
+            foreach (Collider2D collider in colliders)
+            {
+                /*otherCollider = collision.gameObject.GetComponent<Collider2D>();
+                Physics2D.IgnoreCollision(collider, otherCollider, true);*/
+                collider.isTrigger = true;
+                TimeDelegate.instance.Action(() => collider.isTrigger = false, .2f);
+
+            }
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("TorchPass"))
+        {
+            foreach (Collider2D collider in colliders)
+            {
+                /*otherCollider = collision.gameObject.GetComponent<Collider2D>();
+                Physics2D.IgnoreCollision(collider, otherCollider, true);*/
+                TimeDelegate.instance.Action(() => collider.isTrigger = false, .2f);
+
+            }
+        }
+    }
+    
 
     public void Update()
     {
+        
         isPickedUp = transform.parent ? true : false;
 
         try
@@ -66,5 +102,5 @@ public class Torch :MonoBehaviour
             Debug.LogException(e, this);
         }
     }
-    
+
 }

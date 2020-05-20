@@ -9,7 +9,7 @@ public class Ghost : EnemyUnit
         base.Initialize();
         enemyType = EnemyType.Ghosts;
         sprite.color = Random.ColorHSV();
-        SoundManager.instance.PlaySFX("EnemySpawn", this.gameObject);
+        SoundManager.instance.PlaySFX("EnemySpawn", this.gameObject,1.5f);
     }
     public override void PostInitialize()
     {

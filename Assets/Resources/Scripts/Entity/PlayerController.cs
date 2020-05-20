@@ -132,7 +132,7 @@ public class PlayerController : MonoBehaviour, IManagable
         {
             t.rb.AddForce(aimDirection.normalized * t.force, ForceMode2D.Impulse);
             Physics2D.IgnoreCollision(this.GetComponent<Collider2D>(), t.GetComponent<Collider2D>());
-            SoundManager.instance.PlaySFX("Throw", this.gameObject);
+            SoundManager.instance.PlaySFX("Throw", this.gameObject,2f);
 
             /*
             torch.ThrowTorch(faceDirection);*/
@@ -216,7 +216,7 @@ public class PlayerController : MonoBehaviour, IManagable
                 Vector2 velocity = rb.velocity;
                 //rb.velocity = Vector2.zero;
                 rb.AddForce(new Vector2(velocity.x, jumpForce) * Time.fixedDeltaTime, ForceMode2D.Impulse);
-               // SoundManager.instance.PlaySFX("Jump", this.gameObject);
+                SoundManager.instance.PlaySFX("Jump", this.gameObject,1f);
 
             }
         }

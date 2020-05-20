@@ -120,7 +120,7 @@ public class PlayerManager : IManagable
     {
         foreach (PlayerController player in players)
         {
-            SoundManager.instance.PlaySFX("Death", player.gameObject);
+            SoundManager.instance.PlaySFX("Death", player.gameObject,0.2f);
 
            TimeDelegate.instance.Action(()=> player.gameObject.SetActive(false),1f);
             player.canMove = false;

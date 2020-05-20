@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,14 +10,17 @@ public class UIManager : MonoBehaviour
     AudioSource[] audioSources;
     public GameObject pauseMenuUI;
  //   GameObject player;
-    PlayerController[] players;
+    PlayerController player;
+    bool isAlive = true;
  
-    public Button restart, quit;
+    public Button retry, quit;
     private void Start()
     {
-        players = FindObjectsOfType<PlayerController>();
+        player = FindObjectOfType<PlayerController>();
        
         audioSources = GameObject.FindObjectsOfType<AudioSource>();
+       /* retry = GameObject.Find("RetryButton").GetComponent<Button>();
+        quit = GameObject.Find("QuitButton2").GetComponent<Button>();*/
 
     }
    // void Start()
@@ -35,22 +39,15 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         
-        for (int i = 0; i < players.Length; i++)
-        {
-/*            Debug.Log (players[i].transform.position) ;*/
-            /*if (!players[i].isAlive)
+       /*
+            if (!player.isAlive)
             {
-                Debug.Log("1");
-                restart.enabled = true;
-                quit.enabled = true;
-            }
-            else
-            {
-                Debug.Log("2");
-                restart.enabled = false;
-                quit.enabled = false;
-              }*/
-        }
+                isAlive = false;
+                Retry();
+
+            }*/
+    
+        
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (isPaused)
@@ -63,9 +60,20 @@ public class UIManager : MonoBehaviour
             }
         }
     }
-       
-       
-    
+
+    private void Retry()
+    {
+        if(isAlive == false)
+        {
+             retry.enabled = true;
+             retry.interactable = true;
+        }
+        else
+        {
+            retry.enabled = false;
+            retry.interactable = false;
+        }
+    }
 
     public void NewGameButton() {
         LevelManager.instance.LoadNextScene(LevelManager.instance.firstSceneIndex+1);

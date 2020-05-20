@@ -68,7 +68,7 @@ public class SoundManager : MonoBehaviour, IManagable
         isPlaying = true;
 
     }
-    public void PlaySFX(string name,GameObject go)
+    public void PlaySFX(string name,GameObject go,float _volume)
     {
         AudioSource activeSource;
         if (go.GetComponent<AudioSource>())
@@ -81,7 +81,7 @@ public class SoundManager : MonoBehaviour, IManagable
           
         }
         activeSource.PlayOneShot(audioDict[name]);
-        activeSource.volume = 1;
+        activeSource.volume = _volume;
         activeSource.pitch = 1;
         isPlaying = true;
     }

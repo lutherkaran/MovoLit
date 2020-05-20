@@ -13,6 +13,7 @@ TagManager:
   - TorchText
   - CenterPoint
   - DeadZones
+  - TorchPass
   layers:
   - Default
   - TransparentFX
