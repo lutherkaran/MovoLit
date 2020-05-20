@@ -82,7 +82,7 @@ public abstract class EnemyUnit : MonoBehaviour ,IManagable
                     /*                UnityEngine.Debug.Log("1");*/
                 }
 
-                else if (!(players[0].GetComponentInChildren<Torch>()) && !(players[1].GetComponentInChildren<Torch>()))
+                if (!(players[0].GetComponentInChildren<Torch>()) && !(players[1].GetComponentInChildren<Torch>()))
                 {
                     /* UnityEngine.Debug.Log("2");*/
 
@@ -101,10 +101,6 @@ public abstract class EnemyUnit : MonoBehaviour ,IManagable
                         target = players[1].transform.position;
                         direction = target - this.transform.position;
                     }
-                }
-                else
-                {
-                    break;
                 }
             }
 

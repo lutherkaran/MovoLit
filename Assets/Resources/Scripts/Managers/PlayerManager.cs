@@ -118,16 +118,18 @@ public class PlayerManager : IManagable
     }
     public void PlayerDied()
     {
-         
-        for (int i = 0; i < playersList.Count; i++)
+        Debug.Log("PlayerDied");
+
+        
+        /*for (int i = 0; i < playersList.Count; i++)
         {
             SoundManager.instance.PlaySFX("Death", playersList[i].gameObject, 0.2f);
             playersList[i].canMove = false;
             playersList[i].isAlive = false;
             GameObject.Destroy(playersList[i], 1f);
-            playersList.Remove(playersList[i]);
+            *//*playersList.Remove(playersList[i]);*//*
             playersList.Clear();
-        }
+        }*/
 
 
 

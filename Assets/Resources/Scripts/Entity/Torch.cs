@@ -47,8 +47,8 @@ public class Torch : MonoBehaviour
          {
              foreach (Collider2D collider in colliders)
              {
-                 //otherCollider = collision.gameObject.GetComponent<Collider2D>();
-                 Physics2D.IgnoreCollision(collider, otherCollider, true);
+                // otherCollider = collision.gameObject.GetComponent<Collider2D>();
+                // Physics2D.IgnoreCollision(collider, otherCollider, true);
                  collider.isTrigger = true;
                  TimeDelegate.instance.Action(() => collider.isTrigger = false, .2f);
 
@@ -62,7 +62,7 @@ public class Torch : MonoBehaviour
              foreach (Collider2D collider in colliders)
              {
                  //otherCollider = collision.gameObject.GetComponent<Collider2D>();
-                 Physics2D.IgnoreCollision(collider, otherCollider, true);
+                // Physics2D.IgnoreCollision(collider, otherCollider, true);
                  TimeDelegate.instance.Action(() => collider.isTrigger = false, .2f);
 
              }
