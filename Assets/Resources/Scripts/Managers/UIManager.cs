@@ -55,7 +55,7 @@ public class UIManager : MonoBehaviour
 
         if (PlayerManager.playersAreDead)
         {
-            Debug.Log(PlayerManager.playersAreDead);
+/*            Debug.Log(PlayerManager.playersAreDead);*/
             RetryMenu(true);
         }
         else

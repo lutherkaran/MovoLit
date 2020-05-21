@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour, IManagable
             VelocityCheck();
             if (canMove)
             {
-                PlayerJump(inputInfo.jumpPressed);
+                
                 PlayerMove(inputInfo.inputDir);
             }
         }
@@ -88,6 +88,7 @@ public class PlayerController : MonoBehaviour, IManagable
 
             if (canMove)
             {
+                PlayerJump(inputInfo.jumpPressed);
                 if (inputInfo.throwPressed)
                 {
                     /* Debug.Log("Pressed");*/
@@ -174,7 +175,7 @@ public class PlayerController : MonoBehaviour, IManagable
     private void ManageJump(float dt)
     {
         jump = !Grounded();
-        if (jumpThresholdTime)
+       /* if (jumpThresholdTime)
         {
             jumpFrameTimer += dt;
             if (jumpFrameTimer > 0.25f)
@@ -182,7 +183,7 @@ public class PlayerController : MonoBehaviour, IManagable
                 jumpFrameTimer = 0;
                 jumpThresholdTime = false;
             }
-        }
+        }*/
     }
 
     private void PlayerMove(Vector2 dir)

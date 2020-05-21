@@ -15,6 +15,7 @@ TagManager:
   - DeadZones
   - TorchPass
   - RestartMenu
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX
