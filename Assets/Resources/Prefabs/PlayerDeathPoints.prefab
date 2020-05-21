@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 5399012301986348141}
   - component: {fileID: 1071019110340998472}
   - component: {fileID: 8098008280659563157}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: PlayerDeath5
-  m_TagString: Untagged
+  m_TagString: DeadZones
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81,9 +81,9 @@ GameObject:
   - component: {fileID: 5491638074467591167}
   - component: {fileID: 1109350004096182109}
   - component: {fileID: 21757954857807379}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: PlayerDeath6
-  m_TagString: Untagged
+  m_TagString: DeadZones
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -221,9 +221,9 @@ GameObject:
   - component: {fileID: 4253843058818737271}
   - component: {fileID: 1129846610608166987}
   - component: {fileID: 7922281353425509503}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: PlayerDeath4
-  m_TagString: Untagged
+  m_TagString: DeadZones
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -291,9 +291,9 @@ GameObject:
   - component: {fileID: 273358756118296401}
   - component: {fileID: 1227213968702676903}
   - component: {fileID: 7037036181820761732}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: PlayerDeath7
-  m_TagString: Untagged
+  m_TagString: DeadZones
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -361,9 +361,9 @@ GameObject:
   - component: {fileID: 2883729094222247837}
   - component: {fileID: 3310603203107028579}
   - component: {fileID: 3022430608927519132}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: PlayerDeath2
-  m_TagString: Untagged
+  m_TagString: DeadZones
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -431,9 +431,9 @@ GameObject:
   - component: {fileID: 6950543519430291924}
   - component: {fileID: 8349178511886166526}
   - component: {fileID: 3253805464960783669}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: PlayerDeath3
-  m_TagString: Untagged
+  m_TagString: DeadZones
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -612,9 +612,9 @@ GameObject:
   - component: {fileID: 6289626956301668538}
   - component: {fileID: 6289626956301668541}
   - component: {fileID: 6289626956301668540}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: PlayerDeath1
-  m_TagString: Untagged
+  m_TagString: DeadZones
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

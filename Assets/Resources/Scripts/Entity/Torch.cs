@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
+using System.Globalization;
 
 public class Torch : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class Torch : MonoBehaviour
     Vector3 textOffset = new Vector3(0, 1, 0);
     float counter = .5f;
     private Camera cam;
+    PlayerDied[] deadZones;
 
     bool isPickedUp = false;
     Collider2D[] colliders;
@@ -33,6 +35,8 @@ public class Torch : MonoBehaviour
             torchTextTransform = torchPickText.GetComponent<RectTransform>();
             colliders = GetComponents<PolygonCollider2D>();
             effectors = FindObjectsOfType<PlatformEffector2D>();
+            deadZones = FindObjectsOfType<PlayerDied>();
+
         }
         //catch (System.Exception e)
         //{
@@ -72,7 +76,7 @@ public class Torch : MonoBehaviour
 
     public void Update()
     {
-        //CheckPosition();
+        CheckPosition();
         isPickedUp = transform.parent ? true : false;
 
         try
@@ -107,9 +111,21 @@ public class Torch : MonoBehaviour
 
     private void CheckPosition()
     {
+        for (int i = 0; i < deadZones.Length; i++)
+        {
+            if (Vector2.Distance(transform.position, deadZones[i].transform.position) <= 1f)
+            {
+                TimeDelegate.instance.Action(() => gameObject.SetActive(false), 1f);
+                PlayerController[] players = FindObjectsOfType<PlayerController>();
+            }
+
+        }
+        
+        
+        /*
         if (transform.position.y > checker.transform.position.y)
         {
-            /*this.GetComponent<Collider2D>().isTrigger = true;*/
+            *//*this.GetComponent<Collider2D>().isTrigger = true;*//*
             for (int i = 0; i < effectors.Length; i++)
             {
                 Physics2D.IgnoreCollision(this.GetComponent<Collider2D>(), effectors[i].gameObject.GetComponent<Collider2D>(), true);
@@ -119,12 +135,12 @@ public class Torch : MonoBehaviour
         }
         else
         {
-            /*this.GetComponent<Collider2D>().isTrigger = false;*/
+            *//*this.GetComponent<Collider2D>().isTrigger = false;*//*
              for (int i = 0; i < effectors.Length; i++)
              {
                  Physics2D.IgnoreCollision(this.GetComponent<Collider2D>(), effectors[i].gameObject.GetComponent<Collider2D>(), false);
                  Debug.Log("False");
              }
-        }
+        }*/
     }
 }

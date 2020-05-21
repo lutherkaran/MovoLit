@@ -6931,10 +6931,80 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 327332313013662978, guid: 7ff6e2d236e30a0428b63edf2ca112b4,
+        type: 3}
+      propertyPath: m_TagString
+      value: DeadZones
+      objectReference: {fileID: 0}
+    - target: {fileID: 327332313013662978, guid: 7ff6e2d236e30a0428b63edf2ca112b4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1068146003076669947, guid: 7ff6e2d236e30a0428b63edf2ca112b4,
+        type: 3}
+      propertyPath: m_TagString
+      value: DeadZones
+      objectReference: {fileID: 0}
+    - target: {fileID: 1068146003076669947, guid: 7ff6e2d236e30a0428b63edf2ca112b4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 3055922814120561771, guid: 7ff6e2d236e30a0428b63edf2ca112b4,
+        type: 3}
+      propertyPath: m_TagString
+      value: DeadZones
+      objectReference: {fileID: 0}
+    - target: {fileID: 3055922814120561771, guid: 7ff6e2d236e30a0428b63edf2ca112b4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 3927335710501047078, guid: 7ff6e2d236e30a0428b63edf2ca112b4,
+        type: 3}
+      propertyPath: m_TagString
+      value: DeadZones
+      objectReference: {fileID: 0}
+    - target: {fileID: 3927335710501047078, guid: 7ff6e2d236e30a0428b63edf2ca112b4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 4145208317876625559, guid: 7ff6e2d236e30a0428b63edf2ca112b4,
+        type: 3}
+      propertyPath: m_TagString
+      value: DeadZones
+      objectReference: {fileID: 0}
+    - target: {fileID: 4145208317876625559, guid: 7ff6e2d236e30a0428b63edf2ca112b4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 5070284379144758407, guid: 7ff6e2d236e30a0428b63edf2ca112b4,
+        type: 3}
+      propertyPath: m_TagString
+      value: DeadZones
+      objectReference: {fileID: 0}
+    - target: {fileID: 5070284379144758407, guid: 7ff6e2d236e30a0428b63edf2ca112b4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
     - target: {fileID: 5211459374111974694, guid: 7ff6e2d236e30a0428b63edf2ca112b4,
         type: 3}
       propertyPath: m_Name
       value: PlayerDeathPoints
+      objectReference: {fileID: 0}
+    - target: {fileID: 6289626956301668543, guid: 7ff6e2d236e30a0428b63edf2ca112b4,
+        type: 3}
+      propertyPath: m_TagString
+      value: DeadZones
+      objectReference: {fileID: 0}
+    - target: {fileID: 6289626956301668543, guid: 7ff6e2d236e30a0428b63edf2ca112b4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 9184473636501269492, guid: 7ff6e2d236e30a0428b63edf2ca112b4,
         type: 3}
