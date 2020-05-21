@@ -60,7 +60,7 @@ public class Torch : MonoBehaviour
          }
         if (collision.gameObject.layer == LayerMask.NameToLayer("DeadZonesBelow"))
         {
-            Debug.Log("Ok");
+            /*Debug.Log("Ok");*/
             gameObject.SetActive(false);
 
             PlayerController player = FindObjectOfType<PlayerController>();
