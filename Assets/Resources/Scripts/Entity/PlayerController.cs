@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour, IManagable
     Torch torch;
     Vector2 handPos;
     Vector2 handOffset;
+
     [HideInInspector]
 	public Transform handTransform;
 

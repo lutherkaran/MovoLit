@@ -462,7 +462,7 @@ GameObject:
   - component: {fileID: 252637205}
   - component: {fileID: 252637208}
   - component: {fileID: 252637207}
-  m_Layer: 17
+  m_Layer: 18
   m_Name: Cave - RockCombinations1_15
   m_TagString: DeadZones
   m_Icon: {fileID: 0}
@@ -940,7 +940,7 @@ GameObject:
   - component: {fileID: 325654178}
   - component: {fileID: 325654181}
   - component: {fileID: 325654180}
-  m_Layer: 17
+  m_Layer: 18
   m_Name: Cave - RockCombinations1_13
   m_TagString: DeadZones
   m_Icon: {fileID: 0}
@@ -1070,7 +1070,7 @@ GameObject:
   - component: {fileID: 337944016}
   - component: {fileID: 337944019}
   - component: {fileID: 337944018}
-  m_Layer: 17
+  m_Layer: 18
   m_Name: Cave - RockCombinations1_13 (2)
   m_TagString: DeadZones
   m_Icon: {fileID: 0}
@@ -2918,7 +2918,7 @@ GameObject:
   - component: {fileID: 866088068}
   - component: {fileID: 866088071}
   - component: {fileID: 866088070}
-  m_Layer: 17
+  m_Layer: 18
   m_Name: Cave - RockCombinations1_15 (1)
   m_TagString: DeadZones
   m_Icon: {fileID: 0}
@@ -3244,7 +3244,7 @@ GameObject:
   - component: {fileID: 1063010857}
   - component: {fileID: 1063010860}
   - component: {fileID: 1063010859}
-  m_Layer: 17
+  m_Layer: 18
   m_Name: Cave - RockCombinations1_13 (1)
   m_TagString: DeadZones
   m_Icon: {fileID: 0}
@@ -5188,7 +5188,7 @@ GameObject:
   - component: {fileID: 1703892657}
   - component: {fileID: 1703892660}
   - component: {fileID: 1703892659}
-  m_Layer: 17
+  m_Layer: 18
   m_Name: Cave - RockCombinations1_15 (2)
   m_TagString: DeadZones
   m_Icon: {fileID: 0}
@@ -5930,7 +5930,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.1
+  m_Intensity: 1
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: 0000000093f95490dd4ca9f7e7abac73094c6bb2
   m_LightCookieSprite: {fileID: 0}
@@ -6416,7 +6416,7 @@ GameObject:
   - component: {fileID: 2017680003}
   - component: {fileID: 2017680006}
   - component: {fileID: 2017680005}
-  m_Layer: 17
+  m_Layer: 18
   m_Name: Cave - RockCombinations1_13
   m_TagString: DeadZones
   m_Icon: {fileID: 0}
@@ -6931,80 +6931,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 327332313013662978, guid: 7ff6e2d236e30a0428b63edf2ca112b4,
-        type: 3}
-      propertyPath: m_TagString
-      value: DeadZones
-      objectReference: {fileID: 0}
-    - target: {fileID: 327332313013662978, guid: 7ff6e2d236e30a0428b63edf2ca112b4,
-        type: 3}
-      propertyPath: m_Layer
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 1068146003076669947, guid: 7ff6e2d236e30a0428b63edf2ca112b4,
-        type: 3}
-      propertyPath: m_TagString
-      value: DeadZones
-      objectReference: {fileID: 0}
-    - target: {fileID: 1068146003076669947, guid: 7ff6e2d236e30a0428b63edf2ca112b4,
-        type: 3}
-      propertyPath: m_Layer
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 3055922814120561771, guid: 7ff6e2d236e30a0428b63edf2ca112b4,
-        type: 3}
-      propertyPath: m_TagString
-      value: DeadZones
-      objectReference: {fileID: 0}
-    - target: {fileID: 3055922814120561771, guid: 7ff6e2d236e30a0428b63edf2ca112b4,
-        type: 3}
-      propertyPath: m_Layer
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 3927335710501047078, guid: 7ff6e2d236e30a0428b63edf2ca112b4,
-        type: 3}
-      propertyPath: m_TagString
-      value: DeadZones
-      objectReference: {fileID: 0}
-    - target: {fileID: 3927335710501047078, guid: 7ff6e2d236e30a0428b63edf2ca112b4,
-        type: 3}
-      propertyPath: m_Layer
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 4145208317876625559, guid: 7ff6e2d236e30a0428b63edf2ca112b4,
-        type: 3}
-      propertyPath: m_TagString
-      value: DeadZones
-      objectReference: {fileID: 0}
-    - target: {fileID: 4145208317876625559, guid: 7ff6e2d236e30a0428b63edf2ca112b4,
-        type: 3}
-      propertyPath: m_Layer
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 5070284379144758407, guid: 7ff6e2d236e30a0428b63edf2ca112b4,
-        type: 3}
-      propertyPath: m_TagString
-      value: DeadZones
-      objectReference: {fileID: 0}
-    - target: {fileID: 5070284379144758407, guid: 7ff6e2d236e30a0428b63edf2ca112b4,
-        type: 3}
-      propertyPath: m_Layer
-      value: 17
-      objectReference: {fileID: 0}
     - target: {fileID: 5211459374111974694, guid: 7ff6e2d236e30a0428b63edf2ca112b4,
         type: 3}
       propertyPath: m_Name
       value: PlayerDeathPoints
-      objectReference: {fileID: 0}
-    - target: {fileID: 6289626956301668543, guid: 7ff6e2d236e30a0428b63edf2ca112b4,
-        type: 3}
-      propertyPath: m_TagString
-      value: DeadZones
-      objectReference: {fileID: 0}
-    - target: {fileID: 6289626956301668543, guid: 7ff6e2d236e30a0428b63edf2ca112b4,
-        type: 3}
-      propertyPath: m_Layer
-      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 9184473636501269492, guid: 7ff6e2d236e30a0428b63edf2ca112b4,
         type: 3}

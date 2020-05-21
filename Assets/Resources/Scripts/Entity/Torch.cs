@@ -58,15 +58,15 @@ public class Torch : MonoBehaviour
 
              }
          }
-        if (collision.gameObject.CompareTag("DeadZones"))
+        if (collision.gameObject.layer == LayerMask.NameToLayer("DeadZonesBelow"))
         {
-
+            Debug.Log("Ok");
             gameObject.SetActive(false);
 
             PlayerController player = FindObjectOfType<PlayerController>();
             if (player)
             {
-                TimeDelegate.instance.Action(()=>Reposition(player),1.5f);
+                TimeDelegate.instance.Action(()=>Reposition(player),.5f);
             }
             else
             {
