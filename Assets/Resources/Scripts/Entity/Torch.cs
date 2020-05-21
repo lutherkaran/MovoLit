@@ -54,6 +54,21 @@ public class Torch : MonoBehaviour
 
              }
          }
+        if (collision.gameObject.layer == LayerMask.NameToLayer("DeadZonesBelow"))
+        {
+            /*Debug.Log("Ok");*/
+            gameObject.SetActive(false);
+
+            PlayerController player = FindObjectOfType<PlayerController>();
+            if (player)
+            {
+                TimeDelegate.instance.Action(()=>Reposition(player),.5f);
+            }
+            else
+            {
+                Debug.Log("Couldn't Find The player..!!");
+            }
+        }
      }
      private void OnCollisionExit2D(Collision2D collision)
      {
