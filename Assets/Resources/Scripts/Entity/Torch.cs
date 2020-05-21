@@ -58,8 +58,31 @@ public class Torch : MonoBehaviour
 
              }
          }
+        if (collision.gameObject.CompareTag("DeadZones"))
+        {
+
+            gameObject.SetActive(false);
+
+            PlayerController player = FindObjectOfType<PlayerController>();
+            if (player)
+            {
+                TimeDelegate.instance.Action(()=>Reposition(player),1.5f);
+            }
+            else
+            {
+                Debug.Log("Couldn't Find The player..!!");
+            }
+        }
      }
-     private void OnCollisionExit2D(Collision2D collision)
+
+    private void Reposition(PlayerController player)
+    {
+        gameObject.transform.position = player.handTransform.position;
+        TimeDelegate.instance.Action(() => this.gameObject.SetActive(true), 3f);
+        player.PickupObject(this.gameObject);
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
      {
          if (collision.gameObject.CompareTag("TorchPass"))
          {
@@ -76,7 +99,7 @@ public class Torch : MonoBehaviour
 
     public void Update()
     {
-        CheckPosition();
+        //CheckPosition();
         isPickedUp = transform.parent ? true : false;
 
         try
@@ -113,10 +136,16 @@ public class Torch : MonoBehaviour
     {
         for (int i = 0; i < deadZones.Length; i++)
         {
-            if (Vector2.Distance(transform.position, deadZones[i].transform.position) <= 1f)
+            if (Vector2.Distance(transform.position, deadZones[i].transform.position) <= 0.5f)
             {
-                TimeDelegate.instance.Action(() => gameObject.SetActive(false), 1f);
-                PlayerController[] players = FindObjectsOfType<PlayerController>();
+                TimeDelegate.instance.Action(() => gameObject.SetActive(false), 2f);
+                PlayerController player = FindObjectOfType<PlayerController>();
+                player.PickupObject(this.gameObject);
+                this.gameObject.SetActive(true);
+            }
+            else
+            {
+
             }
 
         }

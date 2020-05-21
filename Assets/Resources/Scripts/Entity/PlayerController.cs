@@ -31,7 +31,8 @@ public class PlayerController : MonoBehaviour, IManagable
     Torch torch;
     Vector2 handPos;
     Vector2 handOffset;
-	Transform handTransform;
+    [HideInInspector]
+	public Transform handTransform;
 
     public void PlayerSpawned()
     {
@@ -167,7 +168,7 @@ public class PlayerController : MonoBehaviour, IManagable
             PickupObject(torchfound.transform.gameObject);
     }
 
-    private void PickupObject(GameObject go)
+    public void PickupObject(GameObject go)
     {
         carried = Carried.PickUpObject(go, handTransform);
     }
