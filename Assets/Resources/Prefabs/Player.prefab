@@ -186,12 +186,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 190
-  jumpForce: 240
+  jumpForce: 500
   feet: {fileID: 1756520061}
   jumpFrameTimer: 0
   jumpThresholdTime: 0
   isAlive: 0
   canMove: 0
+  handTransform: {fileID: 0}
 --- !u!50 &-7175407936068229657
 Rigidbody2D:
   serializedVersion: 4
