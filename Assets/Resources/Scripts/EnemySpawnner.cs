@@ -40,7 +40,8 @@ public class EnemySpawnner : MonoBehaviour
         {
             if (!enemy)
             {
-               TimeDelegate.instance.Action(()=>EnemyManager.instance.SpawnEnemy(EnemyType.Ghosts, /*new Vector2(Random.Range(-pos.x,pos.x), Random.Range(-pos.y, pos.y))+*/randomLocation),5);
+                SoundManager.instance.PlaySFX("EnemySpawn", this.gameObject, 1.5f);
+                TimeDelegate.instance.Action(()=>EnemyManager.instance.SpawnEnemy(EnemyType.Ghosts, /*new Vector2(Random.Range(-pos.x,pos.x), Random.Range(-pos.y, pos.y))+*/randomLocation),5);
             }
         }
     }
