@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour, IManagable
 {
+    const float MAX_JUMP_HEIGHT = 12f;
     public float speed;
     public float jumpForce;
     public Transform feet;
@@ -62,7 +63,6 @@ public class PlayerController : MonoBehaviour, IManagable
         if (isAlive)
         {
             inputInfo = inputManager.GetInfo();
-            VelocityCheck();
             if (canMove)
             {
                 
@@ -83,6 +83,7 @@ public class PlayerController : MonoBehaviour, IManagable
     public void Refresh(float dt)
     {
         inputManager.InputUpdate(dt);
+        VelocityCheck();
        // torch.Refresh();
         if (this.isAlive)
         {            
@@ -260,10 +261,9 @@ public class PlayerController : MonoBehaviour, IManagable
         }
         if (jump)
         {
-            if(rb.velocity.y > 4.2f)
+            if(rb.velocity.y > MAX_JUMP_HEIGHT)
             {
-                rb.velocity = new Vector2(rb.velocity.x / 2f, 4.2f);
-
+                rb.velocity = new Vector2(rb.velocity.x / 2f, MAX_JUMP_HEIGHT);
             }
         }
     }
