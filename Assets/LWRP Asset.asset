@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   k_AssetVersion: 4
   m_RendererType: 0
-  m_RendererData: {fileID: 11400000, guid: 4e21422e866581442b6420a43a685c9f, type: 2}
+  m_RendererData: {fileID: 11400000, guid: a49f11dcab1b6fb45bdb6193b21cd4ec, type: 2}
   m_RequireDepthTexture: 0
   m_RequireOpaqueTexture: 0
   m_OpaqueDownsampling: 1
@@ -23,7 +23,7 @@ MonoBehaviour:
   m_RenderScale: 1
   m_MainLightRenderingMode: 1
   m_MainLightShadowsSupported: 1
-  m_MainLightShadowmapResolution: 2048
+  m_MainLightShadowmapResolution: 1024
   m_AdditionalLightsRenderingMode: 1
   m_AdditionalLightsPerObjectLimit: 4
   m_AdditionalLightShadowsSupported: 0
