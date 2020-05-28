@@ -63,15 +63,23 @@ public class Torch : MonoBehaviour
             /*Debug.Log("Ok");*/
             gameObject.SetActive(false);
 
-            PlayerController player = FindObjectOfType<PlayerController>();
-            if (player)
+            PlayerController[] player = FindObjectsOfType<PlayerController>();
+/*            Debug.Log(player.Length);*/
+            for (int i = 0; i < player.Length; i++)
             {
-                TimeDelegate.instance.Action(()=>Reposition(player),.5f);
+                if (!player[i].canMove)
+                {
+                    continue;
+                }
+                else
+                {
+                    Reposition(player[i]);
+                    /*TimeDelegate.instance.Action(() => Reposition(player[i]), .5f);*/
+
+                }
+
             }
-            else
-            {
-                Debug.Log("Couldn't Find The player..!!");
-            }
+           
         }
      }
 

@@ -16,6 +16,7 @@ TagManager:
   - TorchPass
   - RestartMenu
   - SpawnPoint
+  - Light
   layers:
   - Default
   - TransparentFX
@@ -37,7 +38,7 @@ TagManager:
   - DeadZones
   - DeadZonesBelow
   - CentreBlocking
-  - 
+  - Light
   - 
   - 
   - 

@@ -151,6 +151,8 @@ public abstract class EnemyUnit : MonoBehaviour ,IManagable
     {
         if (isDying)
         {
+            /*SoundManager.instance.PlayMusic("MDeath", this.gameObject, false);*/
+            
             rb.velocity = Vector2.zero;
             fadeTimer -= Time.deltaTime / 1.5f;
             sprite.material.SetFloat("_Fade", fadeTimer);
@@ -158,7 +160,8 @@ public abstract class EnemyUnit : MonoBehaviour ,IManagable
     }
     private void Death()
     {
-        if(fadeTimer <= 0.1f)
+        
+        if (fadeTimer <= 0.1f)
         {
             Destroy(gameObject,0.1f);
             EnemyManager.instance.Died(this);

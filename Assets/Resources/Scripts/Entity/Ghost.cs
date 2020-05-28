@@ -44,9 +44,10 @@ public class Ghost : EnemyUnit
             PlayerManager.instance.PlayerDied(players);
         
         }
-        if (other.gameObject.CompareTag("Torch"))
+        if (other.gameObject.CompareTag("Light"))
         {
-            Debug.Log(other.gameObject.name);
+/*            Debug.Log(other.gameObject.name);*/
+            SoundManager.instance.PlaySFX("MDeath", this.gameObject, 1f);
             isDying = true;
         }
 
