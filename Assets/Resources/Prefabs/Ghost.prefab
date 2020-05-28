@@ -160,6 +160,8 @@ MonoBehaviour:
   targetsWithoutTorch: 0
   enemyType: 0
   players: []
+  faded: 0
+  fadeTimer: 1.25
 --- !u!1 &6739687699033513242
 GameObject:
   m_ObjectHideFlags: 0

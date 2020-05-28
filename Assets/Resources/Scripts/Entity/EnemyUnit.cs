@@ -18,6 +18,8 @@ public abstract class EnemyUnit : MonoBehaviour ,IManagable
     public bool targetsWithoutTorch;
     public EnemyType enemyType;
     public List<PlayerController> players;
+    public bool isDying = false;
+    public float fadeTimer = 1.25f;
 
     public bool targetFound { get; private set; }
 
@@ -47,6 +49,8 @@ public abstract class EnemyUnit : MonoBehaviour ,IManagable
         /*        UnityEngine.Debug.Log("Fuck");*/
         // FindTarget();
         FindCloseTarget();
+        FadeOutShader();
+        Death();
     }
 
   
@@ -123,7 +127,7 @@ public abstract class EnemyUnit : MonoBehaviour ,IManagable
             }
         }*/
     }
-   
+
     /* Vector3 GetClosetTargetsTransfrom(Transform[] players)
      {
          Transform minTransform = null;
@@ -141,4 +145,23 @@ public abstract class EnemyUnit : MonoBehaviour ,IManagable
          }
          return minTransform.position;
      }*/
+     
+
+    private void FadeOutShader()
+    {
+        if (isDying)
+        {
+            rb.velocity = Vector2.zero;
+            fadeTimer -= Time.deltaTime / 1.5f;
+            sprite.material.SetFloat("_Fade", fadeTimer);
+        }
+    }
+    private void Death()
+    {
+        if(fadeTimer <= 0.1f)
+        {
+            Destroy(gameObject,0.1f);
+            EnemyManager.instance.Died(this);
+        }
+    }
 }

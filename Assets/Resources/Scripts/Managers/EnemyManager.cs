@@ -55,9 +55,9 @@ public class EnemyManager : IManagable
     }
     public void Refresh(float dt)
     {
-        foreach (EnemyUnit enemy in EnemyUnitsList)
+        for (int i = 0; i < EnemyUnitsList.Count; i++)
         {
-            enemy.Refresh(dt);
+            EnemyUnitsList[i].Refresh(dt);
         }
     }
     public EnemyUnit SpawnEnemy(EnemyType enemy,Vector2 pos)

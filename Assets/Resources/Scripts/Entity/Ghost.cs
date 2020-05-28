@@ -22,9 +22,11 @@ public class Ghost : EnemyUnit
 
         if (targetFound)
         {
+            
             FindCloseTarget();
             RotateTowardsTarget();
-            FollowTarget(dt);
+            if (!isDying)
+                FollowTarget(dt);
         }
        
 
@@ -41,8 +43,13 @@ public class Ghost : EnemyUnit
             PlayerController[] players = FindObjectsOfType<PlayerController>();
             PlayerManager.instance.PlayerDied(players);
         
-        }        
-        
+        }
+        if (other.gameObject.CompareTag("Torch"))
+        {
+            Debug.Log(other.gameObject.name);
+            isDying = true;
+        }
+
     }
     
 }
