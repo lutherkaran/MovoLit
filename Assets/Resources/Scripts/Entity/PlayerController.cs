@@ -238,7 +238,6 @@ public class PlayerController : MonoBehaviour, IManagable
     }
 
     private bool Grounded()
-
     {
         return Physics2D.OverlapCircle(feet.transform.position, 0.2f, LayerMask.GetMask("Ground","TorchPassGround"));
     }
@@ -267,6 +266,5 @@ public class PlayerController : MonoBehaviour, IManagable
             }
         }
     }
-  
 }
 

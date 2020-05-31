@@ -4,15 +4,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
     bool isPaused;
     AudioSource[] audioSources;
     public GameObject pauseMenuUI;
+    private TextMeshProUGUI gameTimerUI;
     //   GameObject player;
     PlayerController player;
     bool isAlive = true;
+
+    public float gameTime = 120f;
 
     // public Button retry, quit;
     GameObject restartMenu;
@@ -20,7 +24,10 @@ public class UIManager : MonoBehaviour
     {
         player = FindObjectOfType<PlayerController>();
         if (SceneManager.GetActiveScene().name != "MainMenu")
+        {
             restartMenu = GameObject.FindGameObjectWithTag("RestartMenu");
+            gameTimerUI = GameObject.FindGameObjectWithTag("GameTimer").GetComponent<TextMeshProUGUI>();
+        }
         audioSources = GameObject.FindObjectsOfType<AudioSource>();
 
         /* retry = GameObject.Find("RetryButton").GetComponent<Button>();
@@ -44,7 +51,6 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
-
         /*
              if (!player.isAlive)
              {
@@ -52,10 +58,9 @@ public class UIManager : MonoBehaviour
                  Retry();
 
              }*/
-
+        GameTimer();
         if (PlayerManager.playersAreDead)
         {
-/*            Debug.Log(PlayerManager.playersAreDead);*/
             RetryMenu(true);
         }
         else
@@ -112,8 +117,6 @@ public class UIManager : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1;
         isPaused = false;
-
-
     }
     public void PauseGameButton()
     {
@@ -155,5 +158,30 @@ public class UIManager : MonoBehaviour
         LevelManager.instance.LoadNextScene(LevelManager.instance.firstSceneIndex);
     }
 
+    public void GameTimer()
+    {
+        if (player)
+        {
+            gameTime -= Time.deltaTime;
+
+            if (gameTimerUI)
+            {
+                if (gameTime > 0)
+                    gameTimerUI.text = string.Format("{0:0}:{1:00}", (int)gameTime / 60, Mathf.FloorToInt(gameTime % 60));
+                else
+                    gameTimerUI.text = "Game Over";
+            }
+
+            if (gameTime <= 0)
+            {
+                PlayerController[] players = FindObjectsOfType<PlayerController>();
+                PlayerManager.instance.PlayerDied(players);
+            }
+        }
+        else
+            if (gameTimerUI)
+                gameTimerUI.text = "Game Over";
+        
+    }
 
 }

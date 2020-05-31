@@ -17,6 +17,7 @@ TagManager:
   - RestartMenu
   - SpawnPoint
   - Light
+  - GameTimer
   layers:
   - Default
   - TransparentFX
