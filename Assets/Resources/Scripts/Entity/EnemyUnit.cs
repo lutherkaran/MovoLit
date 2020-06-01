@@ -20,6 +20,7 @@ public abstract class EnemyUnit : MonoBehaviour ,IManagable
     public List<PlayerController> players;
     public bool isDying = false;
     public float fadeTimer = 1.25f;
+    public bool oneTime = false;
 
     public bool targetFound { get; private set; }
 

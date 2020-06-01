@@ -15,8 +15,9 @@ public class UIManager : MonoBehaviour
     //   GameObject player;
     PlayerController player;
     bool isAlive = true;
+    bool oneTime = false;
 
-    public float gameTime = 120f;
+    public float gameTime = 10f;
 
     // public Button retry, quit;
     GameObject restartMenu;
@@ -51,6 +52,7 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
+       
         /*
              if (!player.isAlive)
              {
@@ -175,7 +177,13 @@ public class UIManager : MonoBehaviour
             if (gameTime <= 0)
             {
                 PlayerController[] players = FindObjectsOfType<PlayerController>();
-                PlayerManager.instance.PlayerDied(players);
+
+             
+                if (!oneTime)
+                {
+                    PlayerManager.instance.PlayerDied(players);
+                    oneTime = true;
+                }
             }
         }
         else

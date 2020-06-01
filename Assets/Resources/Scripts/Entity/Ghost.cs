@@ -46,8 +46,12 @@ public class Ghost : EnemyUnit
         }
         if (other.gameObject.CompareTag("Light"))
         {
-/*            Debug.Log(other.gameObject.name);*/
-            SoundManager.instance.PlaySFX("MDeath", this.gameObject, 1f);
+            /*            Debug.Log(other.gameObject.name);*/
+            if (!oneTime)
+            {
+                SoundManager.instance.PlaySFX("MDeath", this.gameObject, 1f);
+                oneTime = true;
+            }
             isDying = true;
         }
 
