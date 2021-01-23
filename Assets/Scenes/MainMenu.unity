@@ -356,8 +356,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 0}
-  retry: {fileID: 0}
-  quit: {fileID: 0}
 --- !u!1 &1097348370
 GameObject:
   m_ObjectHideFlags: 0
@@ -1097,6 +1095,28 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontSizeBase
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3208462514147260824, guid: 99fbb65cf9a125b4299fb39ec8a554a2,
+        type: 3}
+      propertyPath: m_Name
+      value: SwitchPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 3208462514147260826, guid: 99fbb65cf9a125b4299fb39ec8a554a2,
+        type: 3}
+      propertyPath: m_text
+      value: 'SWITCH
+
+        PLAYER'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3208462514147260826, guid: 99fbb65cf9a125b4299fb39ec8a554a2,
+        type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3208462514147260826, guid: 99fbb65cf9a125b4299fb39ec8a554a2,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 3208462514397416912, guid: 99fbb65cf9a125b4299fb39ec8a554a2,
         type: 3}
