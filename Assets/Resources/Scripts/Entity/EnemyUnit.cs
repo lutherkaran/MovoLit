@@ -162,6 +162,7 @@ public abstract class EnemyUnit : MonoBehaviour ,IManagable
     private void Death()
     {
         
+
         if (fadeTimer <= 0.1f)
         {
             Destroy(gameObject,0.1f);

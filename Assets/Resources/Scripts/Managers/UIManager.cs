@@ -27,7 +27,8 @@ public class UIManager : MonoBehaviour
         if (SceneManager.GetActiveScene().name != "MainMenu")
         {
             restartMenu = GameObject.FindGameObjectWithTag("RestartMenu");
-            gameTimerUI = GameObject.FindGameObjectWithTag("GameTimer").GetComponent<TextMeshProUGUI>();
+            if (SceneManager.GetActiveScene().name != "MyInstruction" && SceneManager.GetActiveScene().name != "Credits")
+                gameTimerUI = GameObject.FindGameObjectWithTag("GameTimer").GetComponent<TextMeshProUGUI>();
         }
         audioSources = GameObject.FindObjectsOfType<AudioSource>();
 
@@ -52,7 +53,7 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
-       
+
         /*
              if (!player.isAlive)
              {
@@ -86,7 +87,8 @@ public class UIManager : MonoBehaviour
     {
         //if(!restartMenu.activeSelf)
         if (SceneManager.GetActiveScene().name != "MainMenu")
-            restartMenu.SetActive(b);
+            if (restartMenu != null)
+                restartMenu.SetActive(b);
         //if(isAlive == false)
         //{
         //     retry.enabled = true;
@@ -159,6 +161,14 @@ public class UIManager : MonoBehaviour
     {
         LevelManager.instance.LoadNextScene(LevelManager.instance.firstSceneIndex);
     }
+    public void BackButton()
+    {
+        SceneManager.LoadScene(0);
+    }
+    public void LoadInfoScene()
+    {
+        SceneManager.LoadScene(5);
+    }
 
     public void GameTimer()
     {
@@ -178,7 +188,7 @@ public class UIManager : MonoBehaviour
             {
                 PlayerController[] players = FindObjectsOfType<PlayerController>();
 
-             
+
                 if (!oneTime)
                 {
                     PlayerManager.instance.PlayerDied(players);
@@ -188,8 +198,8 @@ public class UIManager : MonoBehaviour
         }
         else
             if (gameTimerUI)
-                gameTimerUI.text = "Game Over";
-        
+            gameTimerUI.text = "Game Over";
+
     }
 
 }

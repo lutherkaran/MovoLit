@@ -38,7 +38,7 @@ public class Ghost : EnemyUnit
     private void OnTriggerEnter2D(Collider2D other)
     {
    
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player")&&!this.isDying)
         {
             PlayerController[] players = FindObjectsOfType<PlayerController>();
             PlayerManager.instance.PlayerDied(players);
@@ -54,6 +54,7 @@ public class Ghost : EnemyUnit
             }
             isDying = true;
         }
+
 
     }
     
