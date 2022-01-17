@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LightType: 0
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.97
+  m_FalloffIntensity: 0.92
   m_Color: {r: 1, g: 0.69554895, b: 0.23113209, a: 1}
   m_Intensity: 1.5
   m_LightVolumeOpacity: 0.1
@@ -55,22 +55,20 @@ MonoBehaviour:
   m_UseNormalMap: 1
   m_LightOrder: 0
   m_AlphaBlendOnOverlap: 1
+  m_ShadowIntensity: 0
+  m_ShadowVolumeIntensity: 0
   m_PointLightInnerAngle: 75.15999
   m_PointLightOuterAngle: 180.9
   m_PointLightInnerRadius: 1.68
   m_PointLightOuterRadius: 6.04184
-  m_PointLightDistance: 70
+  m_PointLightDistance: 45
   m_PointLightQuality: 0
   m_ShapeLightParametricSides: 30
   m_ShapeLightParametricAngleOffset: 0
-  m_ShapeLightParametricRadius: 0.35
-  m_ShapeLightFalloffSize: 11
+  m_ShapeLightParametricRadius: 0.25
+  m_ShapeLightFalloffSize: 9.14
   m_ShapeLightFalloffOffset: {x: 4.23, y: 4.85}
-  m_ShapePath:
-  - {x: -0.5, y: -0.5, z: 0}
-  - {x: 0.5, y: -0.5, z: 0}
-  - {x: 0.5, y: 0.5, z: 0}
-  - {x: -0.5, y: 0.5, z: 0}
+  m_ShapePath: []
 --- !u!58 &2031115144088193800
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -132,31 +130,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LightType: 0
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 1
-  m_Color: {r: 0.9622642, g: 0.72876, b: 0.37673548, a: 1}
-  m_Intensity: 0.8
+  m_FalloffIntensity: 0.5
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: 00000000094c6bb293f95490dd4ca9f7e7abac73
+  m_ApplyToSortingLayers: 00000000
   m_LightCookieSprite: {fileID: 0}
-  m_UseNormalMap: 1
+  m_UseNormalMap: 0
   m_LightOrder: 0
-  m_AlphaBlendOnOverlap: 1
-  m_PointLightInnerAngle: 358.81
+  m_AlphaBlendOnOverlap: 0
+  m_ShadowIntensity: 0
+  m_ShadowVolumeIntensity: 0
+  m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0.31
-  m_PointLightOuterRadius: 10.96
-  m_PointLightDistance: 20
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1
+  m_PointLightDistance: 3
   m_PointLightQuality: 1
-  m_ShapeLightParametricSides: 10
-  m_ShapeLightParametricAngleOffset: 152.4
-  m_ShapeLightParametricRadius: 0.46
-  m_ShapeLightFalloffSize: 32.68
-  m_ShapeLightFalloffOffset: {x: 0.96, y: 0.83}
-  m_ShapePath:
-  - {x: -0.5, y: -0.5, z: 0}
-  - {x: 0.5, y: -0.5, z: 0}
-  - {x: 0.5, y: 0.5, z: 0}
-  - {x: -0.5, y: 0.5, z: 0}
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath: []
 --- !u!1 &4942890671484831793
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,6 +206,8 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

@@ -44,7 +44,7 @@ public class Torch : MonoBehaviour
         //}
         checker = GameObject.Find("Checker");
     }
-
+    /*I AM A TORCH*/
     private void OnCollisionEnter2D(Collision2D collision)
      {
          if (collision.gameObject.CompareTag("TorchPass"))
